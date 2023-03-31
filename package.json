@@ -1,0 +1,56 @@
+{
+  "name": "with-hp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "with-hp",
+  "author": "with-engineer",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+    "format": "eslint --fix \"**/*.{js,jsx,ts,tsx}\" && prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,json,md}\""
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "gatsby": "^5.8.1",
+    "gatsby-plugin-image": "^3.8.0",
+    "gatsby-plugin-root-import": "^2.0.9",
+    "gatsby-plugin-sass": "^6.8.0",
+    "gatsby-plugin-sharp": "^5.8.1",
+    "gatsby-plugin-sitemap": "^6.8.0",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
+    "gatsby-source-filesystem": "^5.8.0",
+    "gatsby-transformer-sharp": "^5.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.60.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.8",
+    "@types/react": "^18.0.29",
+    "@types/react-dom": "^18.0.11",
+    "eslint-config-react-app": "^7.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.2"
+  }
+}
