@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "@imgix/gatsby": "^2.1.2",
     "gatsby": "^5.8.1",
     "gatsby-plugin-image": "^3.8.0",
     "gatsby-plugin-root-import": "^2.0.9",
@@ -38,6 +39,7 @@
     "gatsby-plugin-sitemap": "^6.8.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-source-filesystem": "^5.8.0",
+    "gatsby-source-microcms": "^3.0.0",
     "gatsby-transformer-sharp": "^5.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

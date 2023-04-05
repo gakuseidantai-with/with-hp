@@ -1,6 +1,12 @@
 import * as path from 'path'
 
+import * as dotenv from 'dotenv'
+
 import type { GatsbyConfig } from 'gatsby'
+
+dotenv.config({
+  path: `.env.${process.env['NODE_ENV']}`,
+})
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -21,6 +27,32 @@ const config: GatsbyConfig = {
     'gatsby-transformer-sharp',
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
+    {
+      resolve: `gatsby-source-microcms`,
+      options: {
+        apiKey: process.env['MICROCMS_API_KEY'],
+        serviceId: 'with-sabae',
+        apis: [
+          {
+            endpoint: 'top-images',
+            format: 'list',
+          },
+        ],
+      },
+    },
+    {
+      resolve: `@imgix/gatsby`,
+      options: {
+        defaultImgixParams: { auto: ['compress', 'format'] },
+        fields: [
+          {
+            nodeType: 'MicrocmsTopImages',
+            fieldName: 'imgixImage',
+            rawURLKey: 'image.url',
+          },
+        ],
+      },
+    },
   ],
 }
 
