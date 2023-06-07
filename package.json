@@ -14,8 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-    "format": "eslint --fix \"**/*.{js,jsx,ts,tsx}\" && prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,json,md}\""
+    "lint": "eslint src",
+    "format": "eslint --fix src && prettier --write src"
   },
   "lint-staged": {
     "*": [
@@ -49,6 +49,7 @@
     "@types/node": "^18.15.8",
     "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-config-react-app": "^7.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
