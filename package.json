@@ -15,7 +15,8 @@
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
-    "format": "eslint --fix src && prettier --write src"
+    "format": "eslint --fix src && prettier --write src",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*": [
@@ -28,6 +29,11 @@
     "*.{css,scss,json,md}": [
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@imgix/gatsby": "^2.1.2",
