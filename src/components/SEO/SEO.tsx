@@ -10,12 +10,26 @@ type Props = {
 export const SEO: React.FC<Props> = ({ children }) => {
   const siteMetadata = useSiteMetadata()
   assertIsDefined(siteMetadata)
-  const { title, description, themeColor } = siteMetadata
+  const { title, description, siteUrl, image, twitterUsername, themeColor } =
+    siteMetadata
 
   return (
     <>
+      <html lang="ja" />
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="image" content={`${siteUrl}${image}`} />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:image" content={`${siteUrl}${image}`} />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content={twitterUsername} />
+      <meta name="twitter:creator" content={twitterUsername} />
+
       <meta name="theme-color" content={themeColor} />
       <meta name="msapplication-config" content="/browserconfig.xml" />
       <meta name="msapplication-TileColor" content={themeColor} />

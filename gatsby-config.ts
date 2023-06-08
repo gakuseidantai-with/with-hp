@@ -13,6 +13,7 @@ const config: GatsbyConfig = {
     title: `学生団体with`,
     description: `鯖江から世界へ！福井県鯖江市で地域活性の活動を行う学生団体です！`,
     siteUrl: `https://with-sabae.com`,
+    image: `/og.png`,
     twitterUsername: `@sabaepc_with`,
     themeColor: `#E4007F`,
   },
