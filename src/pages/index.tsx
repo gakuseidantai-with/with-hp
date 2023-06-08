@@ -7,7 +7,6 @@ import { Top } from '@/components'
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main>
-      <h1>Hello World!</h1>
       <Top />
     </main>
   )

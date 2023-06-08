@@ -1,3 +1,1 @@
-import useTopImages from '@/hooks/useTopImages'
-
-export { useTopImages }
+export { useTopImages } from '@/hooks/useTopImages'

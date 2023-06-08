@@ -1,3 +1,1 @@
-import Top from '@/components/Top/Top'
-
-export { Top }
+export { Top } from '@/components/Top/Top'

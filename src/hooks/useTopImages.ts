@@ -1,15 +1,15 @@
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
-const useTopImages = () => {
-  const { allMicrocmsTopImages } = useStaticQuery<Queries.TopImagesQuery>(
+export const useTopImages = () => {
+  const { allMicrocmsTopImages } = useStaticQuery<Queries.GetTopImagesQuery>(
     graphql`
-      query TopImages {
+      query GetTopImages {
         allMicrocmsTopImages(sort: { sortIndex: ASC }) {
           nodes {
             id
             alt
             imgixImage {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
         }
@@ -19,5 +19,3 @@ const useTopImages = () => {
 
   return allMicrocmsTopImages.nodes
 }
-
-export default useTopImages

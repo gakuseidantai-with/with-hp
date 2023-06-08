@@ -1,9 +1,10 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 
+import * as styles from '@/components/Top/Top.module.scss'
 import { useTopImages } from '@/hooks'
 
-const Top: React.FC = () => {
+export const Top: React.FC = () => {
   const topImages = useTopImages()
 
   return (
@@ -21,5 +22,3 @@ const Top: React.FC = () => {
     )
   )
 }
-
-export default Top
