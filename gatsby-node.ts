@@ -5,6 +5,14 @@ exports.createSchemaCustomization = ({
 }: CreateSchemaCustomizationArgs) => {
   const { createTypes } = actions
   const typeDefs = `
+    type SiteSiteMetadata {
+      title: String!
+      description: String!
+      siteUrl: String!
+      twitterUsername: String!
+      themeColor: String!
+    }
+
     type MicrocmsTopImages implements Node @dontInfer {
       sortIndex: Int!
       id: ID!

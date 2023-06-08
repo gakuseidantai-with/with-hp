@@ -1,7 +1,9 @@
 import { navigate } from 'gatsby'
 import * as React from 'react'
 
-import type { PageProps } from 'gatsby'
+import type { HeadFC, PageProps } from 'gatsby'
+
+import { SEO } from '@/components'
 
 const NotFoundPage: React.FC<PageProps> = () => {
   React.useEffect(() => {
@@ -12,3 +14,5 @@ const NotFoundPage: React.FC<PageProps> = () => {
 }
 
 export default NotFoundPage
+
+export const Head: HeadFC = () => <SEO />

@@ -1,1 +1,2 @@
+export { useSiteMetadata } from '@/hooks/useSiteMetadata'
 export { useTopImages } from '@/hooks/useTopImages'
