@@ -9,7 +9,7 @@ export const Top: React.FC = () => {
 
   return (
     topImages && (
-      <>
+      <section>
         {topImages.map((topImage) => {
           const image = getImage(topImage.imgixImage.gatsbyImageData)
           return (
@@ -18,7 +18,7 @@ export const Top: React.FC = () => {
             )
           )
         })}
-      </>
+      </section>
     )
   )
 }

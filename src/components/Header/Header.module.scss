@@ -1,0 +1,45 @@
+@use '@/styles/utils' as *;
+
+.header {
+  display: flex;
+  background-color: var(--color-white);
+  padding: rem(22) rem(63) rem(8);
+}
+
+.glyph {
+  display: flex;
+  gap: rem(24);
+  @include action;
+
+  .logo {
+    width: rem(46);
+  }
+
+  .tagline {
+    width: rem(96);
+    margin-top: rem(5);
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: rem(40);
+  margin-top: rem(3);
+  margin-left: rem(55);
+
+  button,
+  a {
+    display: inline;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--color-primary);
+    cursor: pointer;
+
+    font-size: rem(13);
+    font-weight: 600;
+
+    @include action;
+  }
+}

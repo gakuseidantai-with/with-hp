@@ -5,3 +5,13 @@
     @content;
   }
 }
+
+@mixin action {
+  transition: opacity 200ms;
+
+  &:hover,
+  &:active {
+    transition: opacity 100ms;
+    opacity: 0.6;
+  }
+}
