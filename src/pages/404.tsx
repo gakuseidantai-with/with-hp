@@ -1,11 +1,14 @@
+import { navigate } from 'gatsby'
 import * as React from 'react'
 
-import type { HeadFC, PageProps } from 'gatsby'
+import type { PageProps } from 'gatsby'
 
 const NotFoundPage: React.FC<PageProps> = () => {
-  return <main>404</main>
+  React.useEffect(() => {
+    navigate('/')
+  }, [])
+
+  return <></>
 }
 
 export default NotFoundPage
-
-export const Head: HeadFC = () => <title>Not found</title>
