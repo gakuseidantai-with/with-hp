@@ -57,6 +57,13 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: `http://rssblog.ameba.jp/gakuren/rss20.xml`,
+        name: `WithBlog`,
+      },
+    },
   ],
 }
 
