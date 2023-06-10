@@ -9,12 +9,17 @@ export const Top: React.FC = () => {
 
   return (
     topImages && (
-      <section>
+      <section className={styles['top']}>
         {topImages.map((topImage) => {
           const image = getImage(topImage.imgixImage.gatsbyImageData)
           return (
             image && (
-              <GatsbyImage key={topImage.id} image={image} alt={topImage.alt} />
+              <GatsbyImage
+                className={styles['image']}
+                key={topImage.id}
+                image={image}
+                alt={topImage.alt}
+              />
             )
           )
         })}

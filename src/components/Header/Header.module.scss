@@ -1,9 +1,18 @@
 @use '@/styles/utils' as *;
 
 .header {
+  z-index: 10000;
+  position: sticky;
+  top: 0;
   display: flex;
+  width: 100%;
   background-color: var(--color-white);
   padding: rem(22) rem(63) rem(8);
+
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.58, 1);
+  &.hidden {
+    transform: translateY(-100%);
+  }
 }
 
 .glyph {
