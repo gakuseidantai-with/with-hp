@@ -1,0 +1,8 @@
+@use '@/styles/utils' as *;
+
+h2.sectionTitle {
+  text-align: center;
+  margin-top: rem(20);
+  color: var(--color-primary);
+  font-size: rem(45);
+}
