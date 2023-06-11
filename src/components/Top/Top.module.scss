@@ -1,7 +1,8 @@
 @use '@/styles/utils' as *;
 
 .top {
-  width: 100%;
+  @include section;
+
   height: 100vh;
   overflow: hidden;
 }
