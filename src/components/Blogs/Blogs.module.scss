@@ -1,9 +1,26 @@
 @use '@/styles/utils' as *;
 
+section {
+  @include section;
+}
+
 img.thumbnail {
   width: rem(360);
   height: rem(240);
   object-fit: cover;
+}
+
+.icon {
+  width: rem(72);
+  height: rem(72);
+  margin: rem(100) auto rem(0);
+}
+
+h2.sectionTitle {
+  text-align: center;
+  margin-top: rem(20);
+  color: var(--color-primary);
+  font-size: rem(45);
 }
 
 .dateLabel {
@@ -23,6 +40,20 @@ img.thumbnail {
 
 a {
   text-decoration: none;
+  @include action;
+}
+
+a.moreBlogs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  margin: rem(70) auto 0;
+  border-radius: 100px;
+  font-size: rem(24);
+  width: rem(360);
+  height: rem(72);
 }
 
 h3.title {
@@ -63,6 +94,8 @@ p.description {
   height: rem(400);
   background-color: var(--color-white);
   padding: rem(18) rem(20) rem(18);
+  border: rem(1) solid #cccccc;
+  border-radius: rem(5);
 }
 
 .header {
