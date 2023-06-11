@@ -3,12 +3,19 @@ import Moment from 'react-moment'
 
 import * as styles from '@/components/Blogs/Blogs.module.scss'
 import { useGetBlogs } from '@/hooks'
+import iconPath from '@/images/logo/icon.svg'
 
 export const Blogs: React.FC = () => {
   const blogs = useGetBlogs()
   return (
     blogs && (
-      <>
+      <section>
+        <img
+          className={styles['icon']}
+          src={iconPath}
+          alt="学生団体withロゴマーク"
+        />
+        <h2 className={styles['sectionTitle']}>withブログ</h2>
         <div className={styles['blogGroup']}>
           {blogs.slice(0, 3).map((blog, index) => {
             return (
@@ -35,7 +42,10 @@ export const Blogs: React.FC = () => {
             )
           })}
         </div>
-      </>
+        <a href="https://ameblo.jp/gakuren/" className={styles['moreBlogs']}>
+          もっとブログを見る　＞
+        </a>
+      </section>
     )
   )
 }

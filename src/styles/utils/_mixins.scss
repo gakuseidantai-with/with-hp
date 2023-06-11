@@ -15,3 +15,9 @@
     opacity: 0.6;
   }
 }
+
+@mixin section {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
