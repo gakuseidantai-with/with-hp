@@ -9,7 +9,7 @@ export const Blogs: React.FC = () => {
   const blogs = useGetBlogs()
   return (
     blogs && (
-      <section>
+      <section className={styles['blogs']}>
         <img
           className={styles['icon']}
           src={iconPath}
@@ -19,7 +19,11 @@ export const Blogs: React.FC = () => {
         <div className={styles['blogGroup']}>
           {blogs.slice(0, 3).map((blog, index) => {
             return (
-              <a href={blog?.link ?? ''} key={blog?.id}>
+              <a
+                href={blog?.link ?? ''}
+                key={blog?.id}
+                className={styles['wrapperBlog']}
+              >
                 <article className={styles['blog']}>
                   <img
                     alt={blog?.title ?? ''}
