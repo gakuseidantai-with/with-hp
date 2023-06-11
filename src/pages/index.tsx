@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import type { HeadFC, PageProps } from 'gatsby'
 
-import { Blogs, Header, SEO, Top } from '@/components'
+import { Activities, Blogs, Header, SEO, Top } from '@/components'
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -11,6 +11,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <main>
         <Top />
         <Blogs />
+        <Activities />
       </main>
     </>
   )

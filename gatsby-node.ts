@@ -19,7 +19,20 @@ exports.createSchemaCustomization = ({
       id: ID!
       alt: String!
       imgixImage: ImgixImage!
+    }   
+
+    type MicrocmsActivities implements Node @dontInfer {
+      title: String!
+      description: String!
+      activitiesId: String!
+      sortIndex: Int!
+      images: [MicrocmsActivitiesImages!]!
     }
+
+    type MicrocmsActivitiesImages implements Node @dotInfer {
+      imgixImage: ImgixImage!
+    }
+
   `
   createTypes(typeDefs)
 }

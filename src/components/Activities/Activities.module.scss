@@ -1,0 +1,77 @@
+@use '@/styles/utils' as *;
+
+section.activites {
+  @include section;
+}
+
+.testSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.testContainer {
+  background: green;
+  width: 100px;
+  height: 100px;
+  //   width: rem(640);
+  //   height: rem(480);
+}
+
+.activitiesGroup {
+  position: relative;
+  display: flex;
+  margin-top: rem(80);
+  flex-direction: column;
+  align-items: center;
+}
+
+.glassesGroup {
+  display: flex;
+  margin-top: rem(16);
+  gap: rem(20);
+  justify-content: center;
+}
+
+.swiper {
+  //   display: inline-block;
+  //   position: relative;
+  //   overflow: hidden;
+  //   width: 100%;
+}
+
+.imageWrap {
+  //   width: 100px;
+  //   width: 100%;
+  //   height: 100%;
+  //   width: rem(640);
+  //   height: rem(480);
+}
+
+.image {
+  //   width: 100%;
+  width: rem(640);
+  height: rem(480);
+  object-fit: cover;
+}
+
+h3.title {
+  display: flex;
+  justify-content: center;
+  font-size: clamp(rem(20), rem(44), rem(44));
+  color: var(--color-black);
+}
+
+p.description {
+  color: var(--color-black);
+  margin-top: rem(32);
+  font-size: rem(24);
+}
+
+.container {
+  display: flex;
+  width: rem(800);
+  //   justify-content: center;
+  flex-direction: column;
+  //   align-items: center;
+  align-items: center;
+}

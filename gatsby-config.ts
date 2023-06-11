@@ -41,6 +41,10 @@ const config: GatsbyConfig = {
             endpoint: 'top-images',
             format: 'list',
           },
+          {
+            endpoint: 'activities',
+            format: 'list',
+          },
         ],
       },
     },
@@ -53,6 +57,11 @@ const config: GatsbyConfig = {
             nodeType: 'MicrocmsTopImages',
             fieldName: 'imgixImage',
             rawURLKey: 'image.url',
+          },
+          {
+            nodeType: 'MicrocmsActivitiesImages',
+            fieldName: 'imgixImage',
+            rawURLKey: 'url',
           },
         ],
       },
