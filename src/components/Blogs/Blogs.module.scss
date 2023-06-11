@@ -1,6 +1,6 @@
 @use '@/styles/utils' as *;
 
-section {
+section.blogs {
   @include section;
 }
 
@@ -38,7 +38,7 @@ h2.sectionTitle {
   left: rem(250);
 }
 
-a {
+a.wrapperBlog {
   text-decoration: none;
   @include action;
 }
@@ -54,6 +54,8 @@ a.moreBlogs {
   font-size: rem(24);
   width: rem(360);
   height: rem(72);
+  text-decoration: none;
+  @include action;
 }
 
 h3.title {
@@ -84,6 +86,10 @@ p.description {
   margin-top: rem(80);
   gap: rem(72);
   justify-content: center;
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .blog {
