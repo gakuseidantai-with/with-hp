@@ -2,6 +2,7 @@ import * as React from 'react'
 import Moment from 'react-moment'
 
 import * as styles from '@/components/Blogs/Blogs.module.scss'
+import { SectionTitle } from '@/components/Common/SectionTitle'
 import { useGetBlogs } from '@/hooks'
 import iconPath from '@/images/logo/icon.svg'
 
@@ -15,7 +16,7 @@ export const Blogs: React.FC = () => {
           src={iconPath}
           alt="学生団体withロゴマーク"
         />
-        <h2 className={styles['sectionTitle']}>withブログ</h2>
+        <SectionTitle title="withブログ"></SectionTitle>
         <div className={styles['blogGroup']}>
           {blogs.slice(0, 3).map((blog, index) => {
             return (
