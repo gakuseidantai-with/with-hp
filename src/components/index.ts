@@ -1,6 +1,7 @@
 export { Header } from '@/components/Header/Header'
 export { SEO } from '@/components/SEO/SEO'
 export { Top } from '@/components/Top/Top'
+export { Main } from '@/components/Main/Main'
 export { Blogs } from '@/components/Blogs/Blogs'
 export { SectionTitle } from '@/components/Common/SectionTitle'
 export { Activities } from '@/components/Activities/Activities'
