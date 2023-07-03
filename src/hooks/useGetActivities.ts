@@ -6,15 +6,19 @@ export const useGetActivities = () => {
       query GetActivities {
         allMicrocmsActivities(sort: { sortIndex: ASC }) {
           nodes {
-            title
-            description
-            activitiesId
-            images {
-              imgixImage {
-                gatsbyImageData(placeholder: BLURRED)
-                url
-              }
-            }
+            ...MicrocmsActivities
+          }
+        }
+      }
+
+      fragment MicrocmsActivities on MicrocmsActivities {
+        title
+        description
+        activitiesId
+        images {
+          imgixImage {
+            gatsbyImageData(placeholder: BLURRED)
+            url
           }
         }
       }
