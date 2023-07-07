@@ -7,13 +7,18 @@ import { isClient } from '@/utils/helper'
 
 export const Header: React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = React.useState<number>(
-    isClient() ? window.pageYOffset : 0
+    isClient() ? window.scrollY : 0
   )
   const [hidden, setHidden] = React.useState<boolean>(false)
   const ticking = React.useRef<boolean>(false)
 
   const handleScroll = React.useCallback(() => {
-    const currentScrollPos = window.pageYOffset
+    const currentScrollPos = window.scrollY
+
+    if (!prevScrollPos) {
+      setPrevScrollPos(currentScrollPos)
+      return
+    }
 
     if (!ticking.current) {
       window.requestAnimationFrame(() => {
