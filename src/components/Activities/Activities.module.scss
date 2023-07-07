@@ -1,0 +1,9 @@
+@use '@/styles/utils' as *;
+
+section.activites {
+  @include section;
+}
+
+.activitiesGroup {
+  margin-top: rem(80);
+}

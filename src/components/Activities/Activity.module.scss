@@ -1,0 +1,137 @@
+@use '@/styles/utils' as *;
+
+.articleWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: rem(80);
+}
+
+.glassesGroup {
+  display: flex;
+  margin-top: rem(16);
+  width: 100%;
+  gap: rem(20);
+  overflow: hidden;
+  justify-content: center;
+}
+
+.imageWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  aspect-ratio: 4/3;
+  max-height: rem(480);
+  max-width: rem(640);
+  object-fit: cover;
+}
+
+h3.title {
+  display: flex;
+  justify-content: center;
+  font-size: clamp(rem(20), rem(44), rem(44));
+  color: var(--color-black);
+}
+
+p.description {
+  color: var(--color-black);
+  margin-top: rem(32);
+  font-size: rem(24);
+  min-height: rem(344);
+  max-width: rem(800);
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  max-width: rem(800+72+72);
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.polygon {
+  z-index: -100;
+  fill: var(--color-primary);
+  width: rem(120);
+  min-width: rem(120);
+}
+
+.button {
+  position: relative;
+  height: rem(120);
+  width: rem(120);
+  background-color: transparent;
+  border: none;
+}
+
+.arrowButton {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(70);
+  height: rem(70);
+  top: rem(25);
+  left: rem(25);
+}
+
+$arrow-width: rem(35);
+$arrow-height: rem(8);
+
+.arrow {
+  display: block;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: $arrow-width;
+    height: $arrow-height;
+    border-radius: calc($arrow-height / 2);
+    background-color: var(--color-white);
+  }
+  &.left {
+    &::before,
+    &::after {
+      left: 0;
+      transform-origin: calc($arrow-height / 2) center;
+    }
+
+    &::before {
+      transform: translate(
+          calc(-1 * $arrow-width / 2),
+          calc(-1 * $arrow-height / 2)
+        )
+        rotate(45deg);
+    }
+    &::after {
+      transform: translate(
+          calc(-1 * $arrow-width / 2),
+          calc(-1 * $arrow-height / 2)
+        )
+        rotate(315deg);
+    }
+  }
+  &.right {
+    &::before,
+    &::after {
+      right: 0;
+      transform-origin: calc(100% - $arrow-height / 2) center;
+    }
+
+    &::before {
+      transform: translate(calc($arrow-width / 2), calc(-1 * $arrow-height / 2))
+        rotate(45deg);
+    }
+    &::after {
+      transform: translate(calc($arrow-width / 2), calc(-1 * $arrow-height / 2))
+        rotate(315deg);
+    }
+  }
+}
