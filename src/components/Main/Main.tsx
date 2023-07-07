@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Polygon } from '@/components/Common/Polygon'
 import * as styles from '@/components/Main/Main.module.scss'
+import { Polygon } from '@/components/common'
 import iconPath from '@/images/logo/icon.svg'
 
 export const Main: React.FC = () => {

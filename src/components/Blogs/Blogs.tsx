@@ -2,15 +2,15 @@ import * as React from 'react'
 import Moment from 'react-moment'
 
 import * as styles from '@/components/Blogs/Blogs.module.scss'
-import { SectionTitle } from '@/components/Common/SectionTitle'
-import { useGetBlogs } from '@/hooks'
+import { IconTitle } from '@/components/common'
+import { useBlogs } from '@/hooks'
 
 export const Blogs: React.FC = () => {
-  const blogs = useGetBlogs()
+  const blogs = useBlogs()
   return (
     blogs && (
       <section className={styles['blogs']}>
-        <SectionTitle title="withブログ"></SectionTitle>
+        <IconTitle>withブログ</IconTitle>
         <div className={styles['blogGroup']}>
           {blogs.slice(0, 3).map((blog, index) => {
             return (

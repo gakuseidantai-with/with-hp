@@ -2,19 +2,16 @@
 
 section.blogs {
   @include section;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 img.thumbnail {
   width: rem(360);
   height: rem(240);
   object-fit: cover;
-}
-
-h2.sectionTitle {
-  text-align: center;
-  margin-top: rem(20);
-  color: var(--color-primary);
-  font-size: rem(45);
 }
 
 .dateLabel {

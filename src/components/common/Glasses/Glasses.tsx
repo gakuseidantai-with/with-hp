@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as styles from '@/components/Activities/Glasses.module.scss'
+import * as styles from '@/components/common/Glasses/Glasses.module.scss'
 
 export const Glasses: React.FC = () => {
   return (

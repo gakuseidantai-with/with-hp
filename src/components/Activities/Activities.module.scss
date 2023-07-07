@@ -1,7 +1,13 @@
 @use '@/styles/utils' as *;
 
-section.activites {
+section.activities {
   @include section;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .activitiesGroup {

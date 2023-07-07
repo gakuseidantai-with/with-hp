@@ -1,6 +1,6 @@
 @use '@/styles/utils' as *;
 
-.top {
+section.top {
   @include section;
 
   height: 100vh;

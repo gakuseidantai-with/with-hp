@@ -1,9 +1,17 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import { useMemo } from 'react'
 
-import { Article } from '@/types'
+type Article = {
+  id: string | null
+  title: string | null
+  link: string | null
+  description: string | null
+  content: string | null
+  date: string | null
+  thumbnailLink: string | null
+}
 
-export const useGetBlogs = () => {
+export const useBlogs = () => {
   const { allFeedWithBlog } = useStaticQuery<Queries.GetBlogsQuery>(
     graphql`
       query GetBlogs {

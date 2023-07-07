@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-export const useGetActivities = () => {
+export const useActivities = () => {
   const { allMicrocmsActivities } = useStaticQuery<Queries.GetActivitiesQuery>(
     graphql`
       query GetActivities {

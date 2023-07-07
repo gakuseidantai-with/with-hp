@@ -7,12 +7,11 @@ import 'swiper/css'
 import 'swiper/css/autoplay'
 
 import * as styles from '@/components/Activities/Activity.module.scss'
-import { Glasses } from '@/components/Activities/Glasses'
-import { Polygon } from '@/components/Common/Polygon'
+import { Glasses, Polygon } from '@/components/common'
 
 type Props = {
   activity: Queries.MicrocmsActivitiesFragment
-  index: Number
+  index: number
   next: () => void
   prev: () => void
 }
