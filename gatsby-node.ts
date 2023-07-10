@@ -1,4 +1,6 @@
-import type { CreateSchemaCustomizationArgs } from 'gatsby'
+import { JSDOM } from 'jsdom'
+
+import type { CreateResolversArgs, CreateSchemaCustomizationArgs } from 'gatsby'
 
 exports.createSchemaCustomization = ({
   actions,
@@ -32,7 +34,38 @@ exports.createSchemaCustomization = ({
     type MicrocmsActivitiesImages implements Node @dotInfer {
       imgixImage: ImgixImage!
     }
-
   `
   createTypes(typeDefs)
+}
+
+exports.createResolvers = ({ createResolvers }: CreateResolversArgs) => {
+  const resolvers = {
+    FeedWithBlog: {
+      description: {
+        type: 'String',
+        resolve(source: any) {
+          return source.content
+            .replace(/<\/?[^>]+(>|$)|&(#[0-9]+|[a-zA-Z]+);/g, '')
+            .trim()
+            .slice(0, 60)
+        },
+      },
+      thumbnailUrl: {
+        type: 'String',
+        async resolve(source: any) {
+          try {
+            const dom = await JSDOM.fromURL(source.link)
+            const element = dom.window.document.querySelector(
+              'meta[property="og:image"]'
+            )
+            if (!(element instanceof dom.window.HTMLMetaElement)) throw Error()
+            return element.content
+          } catch {
+            return 'https://with-sabae.com/og.png'
+          }
+        },
+      },
+    },
+  }
+  createResolvers(resolvers)
 }

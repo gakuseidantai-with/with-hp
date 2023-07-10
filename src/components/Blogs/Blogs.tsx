@@ -22,16 +22,15 @@ export const Blogs: React.FC = () => {
                 <article className={styles['blog']}>
                   <img
                     alt={blog?.title ?? ''}
-                    src={blog?.thumbnailLink ?? ''}
+                    src={blog?.thumbnailUrl ?? ''}
                     className={styles['thumbnail']}
                   ></img>
                   <h3 className={styles['title']}>{blog?.title}</h3>
                   <p className={styles['description']}>{blog?.description}</p>
-                  {/* <Moment format="YYYYMMDD">{blog?.date ?? ''}</Moment> */}
                   {index === 0 ? (
                     <div className={styles['dateLabel']}>
-                      <Moment format="YYYY">{blog?.date ?? ''}</Moment>
-                      <Moment format="MMDD">{blog?.date ?? ''}</Moment>
+                      <Moment format="YYYY">{blog?.pubDate ?? ''}</Moment>
+                      <Moment format="MMDD">{blog?.pubDate ?? ''}</Moment>
                     </div>
                   ) : (
                     <></>
