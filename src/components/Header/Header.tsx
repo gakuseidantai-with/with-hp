@@ -1,11 +1,15 @@
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import * as React from 'react'
 
 import * as styles from '@/components/Header/Header.module.scss'
+import { useSiteMetadata } from '@/hooks'
 import logoPath from '@/images/logo/logo.svg'
 import taglinePath from '@/images/logo/tagline.svg'
 import { isClient } from '@/utils/helper'
 
 export const Header: React.FC = () => {
+  const siteMetadata = useSiteMetadata()
+
   const [prevScrollPos, setPrevScrollPos] = React.useState<number>(
     isClient() ? window.scrollY : 0
   )
@@ -43,7 +47,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className={`${styles['header']} ${hidden ? styles['hidden'] : ''}`}>
-      <a className={styles['glyph']} href="/">
+      <AnchorLink className={styles['glyph']} to="/#top">
         <img
           className={styles['logo']}
           src={logoPath}
@@ -54,12 +58,13 @@ export const Header: React.FC = () => {
           src={taglinePath}
           alt="学生団体withタグライン"
         />
-      </a>
+      </AnchorLink>
       <nav className={styles['links']}>
-        <button>学生団体withとは</button>
-        <button>ブログ</button>
-        <button>メンバー紹介</button>
-        <a href="/">お問い合わせ</a>
+        <AnchorLink to="/#about">学生団体withとは</AnchorLink>
+        <AnchorLink to="/#blog">ブログ</AnchorLink>
+        {siteMetadata && (
+          <a href={`mailto:${siteMetadata.mail}`}>お問い合わせ</a>
+        )}
       </nav>
     </header>
   )

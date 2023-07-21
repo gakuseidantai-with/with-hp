@@ -11,7 +11,7 @@ export const Main: React.FC = () => {
 
   return (
     content && (
-      <section className={styles['main']}>
+      <section className={styles['main']} id="about">
         <div className={styles['decoration']}>
           <Polygon className={styles['polygonDeco1']} sides={15} padding={10} />
           <Polygon className={styles['polygonDeco2']} sides={15} padding={10} />
@@ -43,6 +43,7 @@ export const Main: React.FC = () => {
               image && (
                 <GatsbyImage
                   className={styles[`imageDeco${i + 1}`]}
+                  key={i}
                   image={image}
                   alt=""
                 />

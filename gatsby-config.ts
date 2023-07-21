@@ -14,6 +14,7 @@ const config: GatsbyConfig = {
     description: `鯖江から世界へ！福井県鯖江市で地域活性の活動を行う学生団体です！`,
     siteUrl: `https://with-sabae.com`,
     image: `/og.png`,
+    mail: `gakuseidantai.with@gmail.com`,
     twitterUsername: `@sabaepc_with`,
     themeColor: `#E4007F`,
   },
@@ -30,7 +31,12 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     `gatsby-plugin-sass`,
-    `gatsby-plugin-smoothscroll`,
+    {
+      resolve: `gatsby-plugin-anchor-links`,
+      options: {
+        duration: 500,
+      },
+    },
     {
       resolve: `gatsby-source-microcms`,
       options: {

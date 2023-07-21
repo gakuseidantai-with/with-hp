@@ -8,7 +8,7 @@ import { useBlogs } from '@/hooks'
 export const Blogs: React.FC = () => {
   const blogs = useBlogs()
   return blogs.length ? (
-    <section className={styles['blogs']}>
+    <section className={styles['blogs']} id="blog">
       <IconTitle>withブログ</IconTitle>
       <div className={styles['blogGroup']}>
         {blogs.slice(0, 3).map((blog, index) => {

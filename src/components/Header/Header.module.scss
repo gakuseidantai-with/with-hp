@@ -37,14 +37,9 @@
   margin-top: rem(3);
   margin-left: rem(55);
 
-  button,
   a {
-    display: inline;
-    background: transparent;
-    border: none;
     text-decoration: none;
     color: var(--color-primary);
-    cursor: pointer;
 
     font-size: rem(13);
     font-weight: 600;

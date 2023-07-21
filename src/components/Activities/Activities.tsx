@@ -18,7 +18,7 @@ export const Activities: React.FC = () => {
   const [index, SetIndex] = useState(0)
 
   return activities.length ? (
-    <section className={styles['activities']}>
+    <section className={styles['activities']} id="activity">
       <span className={styles['title']}>
         <IconTitle>活動紹介</IconTitle>
       </span>

@@ -1,3 +1,4 @@
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import * as React from 'react'
 
 import * as styles from '@/components/Footer/Footer.module.scss'
@@ -10,9 +11,11 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles['footer']}>
       <ul className={styles['list']}>
-        <li>ブログ</li>
         <li>
-          活動紹介
+          <AnchorLink to="/#blog">ブログ</AnchorLink>
+        </li>
+        <li>
+          <AnchorLink to="/#activity">活動紹介</AnchorLink>
           <ul>
             {activities.map((activity) => {
               return (
@@ -29,14 +32,15 @@ export const Footer: React.FC = () => {
             })}
           </ul>
         </li>
-        <li>メンバー紹介</li>
       </ul>
       <div className={styles['copyright']}>
-        <img
-          className={styles['icon']}
-          src={iconPath}
-          alt="学生団体withアイコン"
-        />
+        <AnchorLink to="/#top">
+          <img
+            className={styles['icon']}
+            src={iconPath}
+            alt="学生団体withアイコン"
+          />
+        </AnchorLink>
         <p>©︎ with All rights reserved.</p>
       </div>
     </footer>

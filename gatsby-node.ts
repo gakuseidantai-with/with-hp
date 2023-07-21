@@ -12,6 +12,7 @@ exports.createSchemaCustomization = ({
       description: String!
       siteUrl: String!
       image: String!
+      mail: String!
       twitterUsername: String!
       themeColor: String!
     }
