@@ -51,7 +51,7 @@ exports.createResolvers = ({ createResolvers }: CreateResolversArgs) => {
   const resolvers = {
     FeedWithBlog: {
       description: {
-        type: 'String',
+        type: 'String!',
         resolve(source: any) {
           return source.content
             .replace(/<\/?[^>]+(>|$)|&(#[0-9]+|[a-zA-Z]+);/g, '')
@@ -60,7 +60,7 @@ exports.createResolvers = ({ createResolvers }: CreateResolversArgs) => {
         },
       },
       thumbnailUrl: {
-        type: 'String',
+        type: 'String!',
         async resolve(source: any) {
           try {
             const dom = await JSDOM.fromURL(source.link)

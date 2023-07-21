@@ -15,32 +15,37 @@ export const Blogs: React.FC = () => {
           {blogs.slice(0, 3).map((blog, index) => {
             return (
               <a
-                href={blog?.link ?? ''}
-                key={blog?.id}
                 className={styles['wrapperBlog']}
+                key={blog.id}
+                href={blog.link ?? void 0}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <article className={styles['blog']}>
                   <img
-                    alt={blog?.title ?? ''}
-                    src={blog?.thumbnailUrl ?? ''}
                     className={styles['thumbnail']}
-                  ></img>
-                  <h3 className={styles['title']}>{blog?.title}</h3>
-                  <p className={styles['description']}>{blog?.description}</p>
-                  {index === 0 ? (
+                    src={blog.thumbnailUrl}
+                    alt=""
+                  />
+                  <h3 className={styles['title']}>{blog.title}</h3>
+                  <p className={styles['description']}>{blog.description}</p>
+                  {!index && blog.pubDate && (
                     <div className={styles['dateLabel']}>
-                      <Moment format="YYYY">{blog?.pubDate ?? ''}</Moment>
-                      <Moment format="MMDD">{blog?.pubDate ?? ''}</Moment>
+                      <Moment format="YYYY">{blog.pubDate}</Moment>
+                      <Moment format="MMDD">{blog.pubDate}</Moment>
                     </div>
-                  ) : (
-                    <></>
                   )}
                 </article>
               </a>
             )
           })}
         </div>
-        <a href="https://ameblo.jp/gakuren/" className={styles['moreBlogs']}>
+        <a
+          className={styles['moreBlogs']}
+          href="https://ameblo.jp/gakuren"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           もっとブログを見る　＞
         </a>
       </section>
