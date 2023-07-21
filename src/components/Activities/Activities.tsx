@@ -16,28 +16,26 @@ const customMod = (n: number, m: number) => {
 export const Activities: React.FC = () => {
   const activities = useActivities()
   const [index, SetIndex] = useState(0)
-  if (activities.length === 0) {
-    return <></>
-  }
-  return (
-    activities && (
-      <section className={styles['activities']}>
-        <span className={styles['title']}>
-          <IconTitle>活動紹介</IconTitle>
-        </span>
-        <div className={styles['activitiesGroup']}>
-          <Activity
-            activity={activities[index]!}
-            index={index}
-            next={() => {
-              SetIndex((index) => customMod(index + 1, activities.length))
-            }}
-            prev={() => {
-              SetIndex((index) => customMod(index - 1, activities.length))
-            }}
-          ></Activity>
-        </div>
-      </section>
-    )
+
+  return activities.length ? (
+    <section className={styles['activities']}>
+      <span className={styles['title']}>
+        <IconTitle>活動紹介</IconTitle>
+      </span>
+      <div className={styles['activitiesGroup']}>
+        <Activity
+          activity={activities[index]!}
+          index={index}
+          next={() => {
+            SetIndex((index) => customMod(index + 1, activities.length))
+          }}
+          prev={() => {
+            SetIndex((index) => customMod(index - 1, activities.length))
+          }}
+        ></Activity>
+      </div>
+    </section>
+  ) : (
+    <></>
   )
 }

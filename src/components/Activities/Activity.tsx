@@ -10,7 +10,7 @@ import * as styles from '@/components/Activities/Activity.module.scss'
 import { Glasses, Polygon } from '@/components/common'
 
 type Props = {
-  activity: Queries.MicrocmsActivitiesFragment
+  activity: Queries.ActivityFragment
   index: number
   next: () => void
   prev: () => void
@@ -18,7 +18,7 @@ type Props = {
 
 export const Activity: React.FC<Props> = ({ activity, index, next, prev }) => {
   return (
-    <React.Fragment key={activity.activitiesId + 'fragment' + String(index)}>
+    <React.Fragment key={activity.id + 'fragment' + String(index)}>
       <Swiper
         spaceBetween={50}
         grabCursor={true}
@@ -34,12 +34,12 @@ export const Activity: React.FC<Props> = ({ activity, index, next, prev }) => {
         {[...activity.images, ...activity.images].map((imageData, index) => {
           const image = getImage(imageData.imgixImage)
           return (
-            <SwiperSlide key={activity.activitiesId + ':' + String(index)}>
+            <SwiperSlide key={activity.id + ':' + String(index)}>
               <div className={styles['imageWrap']}>
                 <GatsbyImage
                   className={styles['image']}
                   image={image!}
-                  alt={activity.activitiesId + ':' + String(index)} // alt={image!.alt}
+                  alt={activity.id + ':' + String(index)} // alt={image!.alt}
                 />
               </div>
             </SwiperSlide>
@@ -62,7 +62,18 @@ export const Activity: React.FC<Props> = ({ activity, index, next, prev }) => {
             })}
           </div>
 
-          <p className={styles['description']}>{activity.description}</p>
+          <p className={styles['description']}>
+            {activity.description}
+            <br />
+            <a
+              className={styles['link']}
+              href={activity.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              詳しくはこちら
+            </a>
+          </p>
         </article>
         <button onClick={next} className={styles['button']}>
           <Polygon sides={15} className={styles['polygon']}></Polygon>

@@ -35,8 +35,7 @@ exports.createSchemaCustomization = ({
     type MicrocmsActivities implements Node {
       title: String!
       description: String!
-      activitiesId: String!
-      sortIndex: Int!
+      link: String!
       images: [MicrocmsActivitiesImages!]!
     }
 

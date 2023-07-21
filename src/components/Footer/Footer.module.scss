@@ -23,6 +23,12 @@
       font-weight: initial;
       margin-top: rem(32);
       line-height: rem(38);
+
+      a {
+        @include action;
+        text-decoration: none;
+        color: var(--color-white);
+      }
     }
 
     &:not(:last-child) {

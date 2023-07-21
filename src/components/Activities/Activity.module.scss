@@ -43,6 +43,11 @@ p.description {
   min-height: rem(344);
   max-width: rem(800);
   width: 100%;
+
+  .link {
+    @include action;
+    color: var(--color-primary);
+  }
 }
 
 .container {
