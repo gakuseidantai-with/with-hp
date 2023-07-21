@@ -1,21 +1,25 @@
 import * as React from 'react'
-import { useState } from 'react'
-
-import 'swiper/css'
-import 'swiper/css/autoplay'
+import Swiper, { EffectFade } from 'swiper'
+import { Swiper as SwiperEl, SwiperSlide } from 'swiper/react'
 
 import * as styles from '@/components/Activities/Activities.module.scss'
 import { Activity } from '@/components/Activities/Activity'
 import { IconTitle } from '@/components/common'
 import { useActivities } from '@/hooks'
 
-const customMod = (n: number, m: number) => {
-  return ((n % m) + m) % m
-}
+import 'swiper/scss'
+import 'swiper/scss/effect-fade'
 
 export const Activities: React.FC = () => {
   const activities = useActivities()
-  const [index, SetIndex] = useState(0)
+
+  const swiperRef = React.useRef<Swiper>()
+  const slideNext = () => {
+    if (swiperRef.current) swiperRef.current.slideNext()
+  }
+  const slidePrev = () => {
+    if (swiperRef.current) swiperRef.current.slidePrev()
+  }
 
   return activities.length ? (
     <section className={styles['activities']} id="activity">
@@ -23,16 +27,22 @@ export const Activities: React.FC = () => {
         <IconTitle>活動紹介</IconTitle>
       </span>
       <div className={styles['activitiesGroup']}>
-        <Activity
-          activity={activities[index]!}
-          index={index}
-          next={() => {
-            SetIndex((index) => customMod(index + 1, activities.length))
+        <SwiperEl
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper
           }}
-          prev={() => {
-            SetIndex((index) => customMod(index - 1, activities.length))
-          }}
-        ></Activity>
+          allowTouchMove={false}
+          centeredSlides={true}
+          effect={'fade'}
+          loop={true}
+          modules={[EffectFade]}
+        >
+          {activities.map((activity) => (
+            <SwiperSlide key={activity.id} className={styles['activity']}>
+              <Activity activity={activity} prev={slidePrev} next={slideNext} />
+            </SwiperSlide>
+          ))}
+        </SwiperEl>
       </div>
     </section>
   ) : (

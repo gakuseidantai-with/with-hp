@@ -7,8 +7,8 @@ import * as styles from '@/components/Top/Top.module.scss'
 import { useContent } from '@/hooks'
 
 import 'swiper/scss'
+import 'swiper/scss/autoplay'
 import 'swiper/scss/effect-fade'
-import 'swiper/css/autoplay'
 
 export const Top: React.FC = () => {
   const content = useContent()

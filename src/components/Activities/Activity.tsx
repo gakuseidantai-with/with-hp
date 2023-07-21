@@ -3,57 +3,55 @@ import * as React from 'react'
 import { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import 'swiper/css'
-import 'swiper/css/autoplay'
-
 import * as styles from '@/components/Activities/Activity.module.scss'
 import { Glasses, Polygon } from '@/components/common'
 
+import 'swiper/scss'
+import 'swiper/scss/autoplay'
+
 type Props = {
   activity: Queries.ActivityFragment
-  index: number
   next: () => void
   prev: () => void
 }
 
-export const Activity: React.FC<Props> = ({ activity, index, next, prev }) => {
+export const Activity: React.FC<Props> = ({ activity, next, prev }) => {
   return (
-    <React.Fragment key={activity.id + 'fragment' + String(index)}>
+    <>
       <Swiper
-        spaceBetween={50}
         grabCursor={true}
-        slidesPerView={2.5}
-        centeredSlides={true}
-        loop={true}
         autoplay={{
-          delay: 5000,
+          delay: 3000,
+          disableOnInteraction: false,
         }}
         speed={1000}
+        loop={true}
+        loopedSlides={activity.images.length}
+        slidesPerView={'auto'}
+        centeredSlides={true}
         modules={[Autoplay]}
       >
-        {[...activity.images, ...activity.images].map((imageData, index) => {
+        {activity.images.map((imageData) => {
           const image = getImage(imageData.imgixImage)
           return (
-            <SwiperSlide key={activity.id + ':' + String(index)}>
-              <div className={styles['imageWrap']}>
-                <GatsbyImage
-                  className={styles['image']}
-                  image={image!}
-                  alt={activity.id + ':' + String(index)} // alt={image!.alt}
-                />
-              </div>
-            </SwiperSlide>
+            image && (
+              <SwiperSlide
+                className={styles['imageWrap']}
+                key={imageData.imgixImage.url}
+              >
+                <GatsbyImage className={styles['image']} image={image} alt="" />
+              </SwiperSlide>
+            )
           )
         })}
       </Swiper>
       <div className={styles['articleWrapper']}>
-        <button onClick={prev} className={styles['button']}>
-          <Polygon sides={15} className={styles['polygon']}></Polygon>
+        <button className={styles['button']} onClick={prev}>
+          <Polygon sides={15} className={styles['polygon']} />
           <div className={styles['arrowButton']}>
-            <span className={`${styles['arrow']} ${styles['left']}`}></span>
+            <span className={`${styles['arrow']} ${styles['left']}`} />
           </div>
         </button>
-
         <article className={styles['container']}>
           <h3 className={styles['title']}>{activity.title}</h3>
           <div className={styles['glassesGroup']}>
@@ -61,7 +59,6 @@ export const Activity: React.FC<Props> = ({ activity, index, next, prev }) => {
               return <Glasses key={index} />
             })}
           </div>
-
           <p className={styles['description']}>
             {activity.description}
             <br />
@@ -75,13 +72,13 @@ export const Activity: React.FC<Props> = ({ activity, index, next, prev }) => {
             </a>
           </p>
         </article>
-        <button onClick={next} className={styles['button']}>
-          <Polygon sides={15} className={styles['polygon']}></Polygon>
+        <button className={styles['button']} onClick={next}>
+          <Polygon sides={15} className={styles['polygon']} />
           <div className={styles['arrowButton']}>
-            <span className={`${styles['arrow']} ${styles['right']}`}></span>
+            <span className={`${styles['arrow']} ${styles['right']}`} />
           </div>
         </button>
       </div>
-    </React.Fragment>
+    </>
   )
 }
