@@ -4,17 +4,17 @@ import { Autoplay, EffectFade } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import * as styles from '@/components/Top/Top.module.scss'
-import { useTopImages } from '@/hooks'
+import { useContent } from '@/hooks'
 
 import 'swiper/scss'
 import 'swiper/scss/effect-fade'
 import 'swiper/css/autoplay'
 
 export const Top: React.FC = () => {
-  const topImages = useTopImages()
+  const content = useContent()
 
   return (
-    topImages && (
+    content && (
       <section className={styles['top']}>
         <Swiper
           className={styles['swiper']}
@@ -29,15 +29,18 @@ export const Top: React.FC = () => {
           loop={true}
           modules={[Autoplay, EffectFade]}
         >
-          {topImages.map((topImage) => {
+          {content.topImages.map((topImage) => {
             const image = getImage(topImage.imgixImage.gatsbyImageData)
             return (
               image && (
-                <SwiperSlide className={styles['imageWrap']} key={topImage.id}>
+                <SwiperSlide
+                  className={styles['imageWrap']}
+                  key={topImage.imgixImage.url}
+                >
                   <GatsbyImage
                     className={styles['image']}
                     image={image}
-                    alt={topImage.alt}
+                    alt=""
                   />
                 </SwiperSlide>
               )

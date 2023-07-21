@@ -38,8 +38,8 @@ const config: GatsbyConfig = {
         serviceId: 'with-sabae',
         apis: [
           {
-            endpoint: 'top-images',
-            format: 'list',
+            endpoint: 'content',
+            format: 'object',
           },
           {
             endpoint: 'activities',
@@ -61,16 +61,24 @@ const config: GatsbyConfig = {
         defaultImgixParams: { auto: ['compress', 'format'] },
         fields: [
           {
-            nodeType: 'MicrocmsTopImages',
+            nodeType: 'MicrocmsContentTopImages',
             fieldName: 'imgixImage',
-            rawURLKey: 'image.url',
+            rawURLKey: 'url',
           },
           {
             nodeType: 'MicrocmsActivitiesImages',
             fieldName: 'imgixImage',
             rawURLKey: 'url',
           },
-        ],
+        ].concat(
+          [...Array(6)].map((_, i) => {
+            return {
+              nodeType: 'MicrocmsContent',
+              fieldName: `decorativeImgixImage${i + 1}`,
+              rawURLKey: `decorativeImage${i + 1}.url`,
+            }
+          })
+        ),
       },
     },
   ],

@@ -16,14 +16,23 @@ exports.createSchemaCustomization = ({
       themeColor: String!
     }
 
-    type MicrocmsTopImages implements Node @dontInfer {
-      sortIndex: Int!
-      id: ID!
-      alt: String!
-      imgixImage: ImgixImage!
-    }   
+    type MicrocmsContent implements Node {
+      title: String!
+      description: String!
+      decorativeImgixImage1: ImgixImage!
+      decorativeImgixImage2: ImgixImage!
+      decorativeImgixImage3: ImgixImage!
+      decorativeImgixImage4: ImgixImage!
+      decorativeImgixImage5: ImgixImage!
+      decorativeImgixImage6: ImgixImage!
+      topImages: [MicrocmsContentTopImages!]!
+    }
 
-    type MicrocmsActivities implements Node @dontInfer {
+    type MicrocmsContentTopImages implements Node {
+      imgixImage: ImgixImage!
+    }
+
+    type MicrocmsActivities implements Node {
       title: String!
       description: String!
       activitiesId: String!
@@ -31,7 +40,7 @@ exports.createSchemaCustomization = ({
       images: [MicrocmsActivitiesImages!]!
     }
 
-    type MicrocmsActivitiesImages implements Node @dotInfer {
+    type MicrocmsActivitiesImages implements Node {
       imgixImage: ImgixImage!
     }
   `

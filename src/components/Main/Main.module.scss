@@ -17,7 +17,7 @@ section.main {
   & > * {
     animation-name: bobbing;
     animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
+    animation-fill-mode: both;
     animation-direction: alternate-reverse;
     animation-duration: 1000ms;
   }
@@ -171,6 +171,7 @@ section.main {
 
     font-size: rem(24);
     letter-spacing: rem(0.58);
+    white-space: pre-line;
   }
 }
 
