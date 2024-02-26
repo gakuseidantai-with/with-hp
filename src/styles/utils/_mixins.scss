@@ -1,7 +1,13 @@
 @use 'variables' as *;
 
 @mixin mobile {
-  @media screen and (max-width: #{$breakpoint}px) {
+  @media screen and (max-width: #{$breakpoint_sp}px) {
+    @content;
+  }
+}
+
+@mixin wideScreen {
+  @media screen and (max-width: #{$breakpoint_wide_screen}px) {
     @content;
   }
 }
