@@ -1,5 +1,7 @@
 @use '@/styles/utils' as *;
 
+$sp_rate: 0.35 !default;
+
 section.main {
   @include section;
 
@@ -29,18 +31,30 @@ section.main {
     stroke-width: 8px;
     width: rem(157);
     animation-timing-function: ease-out;
+
+    @include mobile {
+      width: rem(157) * $sp_rate;
+    }
   }
 
   .polygonDeco1 {
     top: 28%;
     left: 8%;
     animation-delay: 1000ms;
+
+    @include mobile {
+      top: 13%;
+    }
   }
 
   .polygonDeco2 {
     top: 7%;
     left: 73%;
     animation-delay: 200ms;
+
+    @include mobile {
+      // top: 3%;
+    }
   }
 
   .polygonDeco3 {
@@ -48,6 +62,10 @@ section.main {
     top: 80%;
     left: 73%;
     animation-delay: 400ms;
+
+    @include mobile {
+      top: 70%;
+    }
   }
 
   & [class*='circleDeco'] {
@@ -55,6 +73,9 @@ section.main {
     border-radius: 50%;
     border: solid rem(5) var(--color-primary);
     animation-timing-function: linear;
+    @include mobile {
+      border: solid rem(5) * $sp_rate var(--color-primary);
+    }
   }
 
   .circleDeco1 {
@@ -63,6 +84,11 @@ section.main {
     width: rem(200);
     height: rem(200);
     animation-delay: 600ms;
+
+    @include mobile {
+      width: rem(200) * $sp_rate;
+      height: rem(200) * $sp_rate;
+    }
   }
 
   .circleDeco2 {
@@ -71,6 +97,12 @@ section.main {
     width: rem(120);
     height: rem(120);
     animation-delay: 500ms;
+
+    @include mobile {
+      width: rem(120) * $sp_rate;
+      height: rem(120) * $sp_rate;
+      top: 16%;
+    }
   }
 
   & [class*='imageDeco'] {
@@ -87,6 +119,12 @@ section.main {
     width: rem(160);
     height: rem(160);
     animation-delay: 1000ms;
+
+    @include mobile {
+      width: rem(160) * $sp_rate;
+      height: rem(160) * $sp_rate;
+      top: 6%;
+    }
   }
 
   .imageDeco2 {
@@ -95,6 +133,13 @@ section.main {
     width: rem(240);
     height: rem(240);
     animation-delay: 2000ms;
+
+    @include mobile {
+      width: rem(240) * $sp_rate;
+      height: rem(240) * $sp_rate;
+      top: 37%;
+      left: 1%;
+    }
   }
 
   .imageDeco3 {
@@ -104,6 +149,13 @@ section.main {
     width: rem(224);
     height: rem(224);
     animation-delay: 1500ms;
+
+    @include mobile {
+      width: rem(224) * $sp_rate;
+      height: rem(224) * $sp_rate;
+      // top: 58%;
+      left: 6%;
+    }
   }
 
   .imageDeco4 {
@@ -112,6 +164,12 @@ section.main {
     width: rem(240);
     height: rem(240);
     animation-delay: 700ms;
+
+    @include mobile {
+      width: rem(240) * $sp_rate;
+      height: rem(240) * $sp_rate;
+      top: 10%;
+    }
   }
 
   .imageDeco5 {
@@ -120,6 +178,11 @@ section.main {
     width: rem(224);
     height: rem(224);
     animation-delay: 100ms;
+
+    @include mobile {
+      width: rem(224) * $sp_rate;
+      height: rem(224) * $sp_rate;
+    }
   }
 
   .imageDeco6 {
@@ -128,12 +191,21 @@ section.main {
     width: rem(200);
     height: rem(200);
     animation-delay: 300ms;
+
+    @include mobile {
+      width: rem(200) * $sp_rate;
+      height: rem(200) * $sp_rate;
+    }
   }
 }
 
 .polygon,
 .content {
   padding-top: rem(128);
+
+  @include mobile {
+    padding-top: rem(128) * $sp_rate;
+  }
 }
 
 .polygon {
@@ -143,6 +215,12 @@ section.main {
   min-width: rem(1028);
 
   padding-bottom: rem(200);
+
+  @include mobile {
+    width: rem(1028) * $sp_rate;
+    min-width: rem(1028) * $sp_rate;
+    padding-bottom: rem(200) * $sp_rate;
+  }
 }
 
 .content {
@@ -155,6 +233,11 @@ section.main {
   .icon {
     width: rem(180);
     margin-top: rem(50);
+
+    @include mobile {
+      width: rem(180) * $sp_rate;
+      margin-top: rem(50) * $sp_rate;
+    }
   }
 
   .title {
@@ -163,6 +246,12 @@ section.main {
 
     font-size: rem(50);
     letter-spacing: rem(2.24);
+
+    @include mobile {
+      margin-top: rem(66) * $sp_rate;
+      font-size: rem(50) * $sp_rate;
+      letter-spacing: rem(2.24) * $sp_rate;
+    }
   }
 
   .description {
@@ -172,6 +261,17 @@ section.main {
     font-size: rem(24);
     letter-spacing: rem(0.58);
     white-space: pre-line;
+
+    @include mobile {
+      margin-top: rem(63) * $sp_rate;
+
+      font-size: rem(24) * $sp_rate;
+      letter-spacing: rem(0.58) * $sp_rate;
+    }
+  }
+
+  @include mobile {
+    width: rem(755) * $sp_rate;
   }
 }
 
