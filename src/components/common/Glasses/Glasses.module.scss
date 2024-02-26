@@ -1,16 +1,28 @@
 @use '@/styles/utils' as *;
 
+$sp_rate: 0.5 !default;
+
 .circle {
   width: rem(42);
   height: rem(42);
   border-radius: 50%;
   border: solid rem(5) var(--color-primary);
+
+  @include mobile {
+    width: rem(42) * $sp_rate;
+    height: rem(42) * $sp_rate;
+  }
 }
 
 .line {
   width: rem(14);
   height: rem(5);
   background: var(--color-primary);
+
+  @include mobile {
+    width: rem(14) * $sp_rate;
+    height: rem(10) * $sp_rate;
+  }
 }
 
 .glasses {
