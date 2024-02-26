@@ -5,10 +5,13 @@
   justify-content: space-around;
   width: 100%;
   background-color: var(--color-primary);
-  padding: rem(40) 0 rem(100);
+  padding: rem(40) rem(20) rem(100);
 
   font-size: rem(24);
   color: var(--color-white);
+  @include mobile {
+    flex-flow: column;
+  }
 
   ul,
   li {
