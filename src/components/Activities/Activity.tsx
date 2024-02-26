@@ -18,35 +18,45 @@ type Props = {
 export const Activity: React.FC<Props> = ({ activity, next, prev }) => {
   return (
     <>
-      <Swiper
-        grabCursor={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        speed={1000}
-        loop={true}
-        loopedSlides={activity.images.length}
-        slidesPerView={'auto'}
-        centeredSlides={true}
-        modules={[Autoplay]}
-      >
-        {activity.images.map((imageData) => {
-          const image = getImage(imageData.imgixImage)
-          return (
-            image && (
-              <SwiperSlide
-                className={styles['imageWrap']}
-                key={imageData.imgixImage.url}
-              >
-                <GatsbyImage className={styles['image']} image={image} alt="" />
-              </SwiperSlide>
+      <div className={styles['swiperWrap']}>
+        <Swiper
+          grabCursor={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          speed={1000}
+          loop={true}
+          loopedSlides={activity.images.length}
+          slidesPerView={'auto'}
+          centeredSlides={true}
+          modules={[Autoplay]}
+        >
+          {activity.images.map((imageData) => {
+            const image = getImage(imageData.imgixImage)
+            return (
+              image && (
+                <SwiperSlide
+                  className={styles['imageWrap']}
+                  key={imageData.imgixImage.url}
+                >
+                  <GatsbyImage
+                    className={styles['image']}
+                    image={image}
+                    alt=""
+                  />
+                </SwiperSlide>
+              )
             )
-          )
-        })}
-      </Swiper>
+          })}
+        </Swiper>
+      </div>
       <div className={styles['articleWrapper']}>
-        <button className={styles['button']} onClick={prev}>
+        <div className={styles['spacer']}></div>
+        <button
+          className={`${styles['button']} ${styles['left']}`}
+          onClick={prev}
+        >
           <Polygon sides={15} className={styles['polygon']} />
           <div className={styles['arrowButton']}>
             <span className={`${styles['arrow']} ${styles['left']}`} />
@@ -54,8 +64,18 @@ export const Activity: React.FC<Props> = ({ activity, next, prev }) => {
         </button>
         <article className={styles['container']}>
           <h3 className={styles['title']}>{activity.title}</h3>
-          <div className={styles['glassesGroup']}>
+          <div className={styles['glassesGroupPC']}>
             {[...Array(7)].map((_, index) => {
+              return <Glasses key={index} />
+            })}
+          </div>
+          <div className={styles['glassesGroupWide']}>
+            {[...Array(5)].map((_, index) => {
+              return <Glasses key={index} />
+            })}
+          </div>
+          <div className={styles['glassesGroupMobile']}>
+            {[...Array(3)].map((_, index) => {
               return <Glasses key={index} />
             })}
           </div>
@@ -72,12 +92,16 @@ export const Activity: React.FC<Props> = ({ activity, next, prev }) => {
             </a>
           </p>
         </article>
-        <button className={styles['button']} onClick={next}>
+        <button
+          className={`${styles['button']} ${styles['right']}`}
+          onClick={next}
+        >
           <Polygon sides={15} className={styles['polygon']} />
           <div className={styles['arrowButton']}>
             <span className={`${styles['arrow']} ${styles['right']}`} />
           </div>
         </button>
+        <div className={styles['spacer']}></div>
       </div>
     </>
   )
