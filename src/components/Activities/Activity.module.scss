@@ -1,9 +1,17 @@
 @use '@/styles/utils' as *;
 
+$sp_rate: 0.4 !default;
+
 .imageWrap {
   height: rem(480) !important;
   width: rem(640) !important;
   margin: 0 rem(60);
+
+  @include mobile {
+    height: rem(480) * 0.43 !important;
+    width: rem(640) * 0.43 !important;
+    margin: 0 rem(60) * 0.43;
+  }
 }
 
 .image {
@@ -33,15 +41,54 @@ h3.title {
   justify-content: center;
   font-size: clamp(rem(20), rem(44), rem(44));
   color: var(--color-black);
+
+  @include mobile {
+    padding-right: rem(15);
+    padding-left: rem(15);
+  }
 }
 
-.glassesGroup {
+.glassesGroupPC {
   display: flex;
   margin-top: rem(16);
   width: 100%;
   gap: rem(20);
   overflow: hidden;
   justify-content: center;
+
+  @include wideScreen {
+    display: none;
+  }
+}
+
+.glassesGroupWide {
+  display: none;
+  margin-top: rem(16);
+  width: 100%;
+  gap: rem(20);
+  overflow: hidden;
+  justify-content: center;
+
+  @include wideScreen {
+    display: flex;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.glassesGroupMobile {
+  display: none;
+  margin-top: rem(16);
+  width: 100%;
+  gap: rem(20);
+  overflow: hidden;
+  justify-content: center;
+
+  @include mobile {
+    display: flex;
+  }
 }
 
 p.description {
@@ -56,6 +103,12 @@ p.description {
     @include action;
     color: var(--color-primary);
   }
+
+  @include wideScreen {
+    padding-left: rem(10);
+    padding-right: rem(10);
+    padding-bottom: rem(100);
+  }
 }
 
 .button {
@@ -66,6 +119,11 @@ p.description {
   border: none;
 
   @include action;
+
+  @include mobile {
+    height: rem(120) * $sp_rate;
+    width: rem(120) * $sp_rate;
+  }
 }
 
 .polygon {
@@ -73,6 +131,11 @@ p.description {
   fill: var(--color-primary);
   width: rem(120);
   min-width: rem(120);
+
+  @include mobile {
+    width: rem(120) * $sp_rate;
+    min-width: rem(120) * $sp_rate;
+  }
 }
 
 .arrowButton {
@@ -84,6 +147,17 @@ p.description {
   height: rem(70);
   top: rem(25);
   left: rem(25);
+
+  @include mobile {
+    width: rem(70) * $sp_rate;
+    height: rem(70) * $sp_rate;
+    top: rem(25) * $sp_rate;
+    left: rem(25) * $sp_rate;
+  }
+}
+
+.spacer {
+  width: rem(20);
 }
 
 $arrow-width: rem(35);
@@ -139,6 +213,63 @@ $arrow-height: rem(8);
     &::after {
       transform: translate(calc($arrow-width / 2), calc(-1 * $arrow-height / 2))
         rotate(315deg);
+    }
+  }
+
+  @include mobile {
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: $arrow-width * $sp_rate;
+      height: $arrow-height * $sp_rate;
+      border-radius: calc($arrow-height * $sp_rate / 2);
+      background-color: var(--color-white);
+    }
+    &.left {
+      &::before,
+      &::after {
+        left: 0;
+        transform-origin: calc($arrow-height * $sp_rate / 2) center;
+      }
+
+      &::before {
+        transform: translate(
+            calc(-1 * $arrow-width * $sp_rate / 2),
+            calc(-1 * $arrow-height * $sp_rate / 2)
+          )
+          rotate(45deg);
+      }
+      &::after {
+        transform: translate(
+            calc(-1 * $arrow-width * $sp_rate / 2),
+            calc(-1 * $arrow-height * $sp_rate / 2)
+          )
+          rotate(315deg);
+      }
+    }
+    &.right {
+      &::before,
+      &::after {
+        right: 0;
+        transform-origin: calc(100% - $arrow-height * $sp_rate / 2) center;
+      }
+
+      &::before {
+        transform: translate(
+            calc($arrow-width * $sp_rate / 2),
+            calc(-1 * $arrow-height * $sp_rate / 2)
+          )
+          rotate(45deg);
+      }
+      &::after {
+        transform: translate(
+            calc($arrow-width * $sp_rate / 2),
+            calc(-1 * $arrow-height * $sp_rate / 2)
+          )
+          rotate(315deg);
+      }
     }
   }
 }
