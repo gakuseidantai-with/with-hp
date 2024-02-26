@@ -5,6 +5,14 @@ section.top {
 
   height: 100vh;
   overflow: hidden;
+
+  @include wideScreen {
+    height: 90vh;
+  }
+
+  @include mobile {
+    height: 30vh;
+  }
 }
 
 .swiper,
