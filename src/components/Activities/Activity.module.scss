@@ -121,8 +121,8 @@ p.description {
   @include action;
 
   @include mobile {
-    height: rem(120) * $sp_rate;
-    width: rem(120) * $sp_rate;
+    height: rem(120) * $sp_rate * 0.6;
+    width: rem(120) * $sp_rate * 0.6;
   }
 }
 
@@ -133,8 +133,8 @@ p.description {
   min-width: rem(120);
 
   @include mobile {
-    width: rem(120) * $sp_rate;
-    min-width: rem(120) * $sp_rate;
+    width: rem(120) * $sp_rate * 0.6;
+    min-width: rem(120) * $sp_rate * 0.6;
   }
 }
 
@@ -149,10 +149,10 @@ p.description {
   left: rem(25);
 
   @include mobile {
-    width: rem(70) * $sp_rate;
-    height: rem(70) * $sp_rate;
-    top: rem(25) * $sp_rate;
-    left: rem(25) * $sp_rate;
+    width: rem(70) * $sp_rate * 0.6;
+    height: rem(70) * $sp_rate * 0.6;
+    top: rem(25) * $sp_rate * 0.6;
+    left: rem(25) * $sp_rate * 0.6;
   }
 }
 
