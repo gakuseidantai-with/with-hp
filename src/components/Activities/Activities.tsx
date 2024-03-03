@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useEffect, useState } from 'react'
 import Swiper, { EffectFade } from 'swiper'
 import { Swiper as SwiperEl, SwiperSlide } from 'swiper/react'
 
@@ -34,6 +35,7 @@ export const Activities: React.FC = () => {
           allowTouchMove={false}
           centeredSlides={true}
           effect={'fade'}
+          fadeEffect={{ crossFade: true }}
           loop={true}
           modules={[EffectFade]}
         >
