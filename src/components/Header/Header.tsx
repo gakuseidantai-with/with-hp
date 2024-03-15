@@ -8,6 +8,7 @@ import taglinePath from '@/images/logo/tagline.svg'
 import { isClient } from '@/utils/helper'
 
 export const Header: React.FC = () => {
+  const [openMenu, setOpenMenu] = React.useState<boolean>(false)
   const siteMetadata = useSiteMetadata()
 
   const [prevScrollPos, setPrevScrollPos] = React.useState<number>(
@@ -46,26 +47,83 @@ export const Header: React.FC = () => {
   }, [handleScroll])
 
   return (
-    <header className={`${styles['header']} ${hidden ? styles['hidden'] : ''}`}>
-      <AnchorLink className={styles['glyph']} to="/#top">
-        <img
-          className={styles['logo']}
-          src={logoPath}
-          alt="学生団体withロゴマーク"
-        />
-        <img
-          className={styles['tagline']}
-          src={taglinePath}
-          alt="学生団体withタグライン"
-        />
-      </AnchorLink>
-      <nav className={styles['links']}>
-        <AnchorLink to="/#about">学生団体withとは</AnchorLink>
-        <AnchorLink to="/#blog">ブログ</AnchorLink>
-        {siteMetadata && (
-          <a href={`mailto:${siteMetadata.mail}`}>お問い合わせ</a>
-        )}
-      </nav>
-    </header>
+    <>
+      <header
+        className={`${styles['header']} ${hidden ? styles['hidden'] : ''}`}
+      >
+        <div className={styles['Shamburger']}></div>
+        <AnchorLink className={styles['glyph']} to="/#top">
+          <img
+            className={styles['logo']}
+            src={logoPath}
+            alt="学生団体withロゴマーク"
+          />
+          <img
+            className={styles['tagline']}
+            src={taglinePath}
+            alt="学生団体withタグライン"
+          />
+        </AnchorLink>
+        <nav className={styles['links']}>
+          <AnchorLink to="/#about">学生団体withとは</AnchorLink>
+          <AnchorLink to="/#blog">ブログ</AnchorLink>
+          {siteMetadata && (
+            <a href={`mailto:${siteMetadata.mail}`}>お問い合わせ</a>
+          )}
+        </nav>
+        <div
+          className={styles['hamburger']}
+          onClick={() => {
+            setOpenMenu((v) => !v)
+            console.log(openMenu)
+          }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </header>
+      <div
+        className={`${styles['drawerMenu']} ${openMenu ? styles['open'] : ''}`}
+      >
+        <ul className={styles['list']}>
+          <div
+            className={styles['close']}
+            onClick={() => setOpenMenu((v) => !v)}
+          >
+            <span></span>
+            <span></span>
+          </div>
+          <li className={styles['linkLi']}>
+            <AnchorLink
+              className={styles['link']}
+              onAnchorLinkClick={() => setOpenMenu((v) => !v)}
+              to="/#about"
+            >
+              学生団体withとは
+            </AnchorLink>
+          </li>
+          <li className={styles['linkLi']}>
+            <AnchorLink
+              className={styles['link']}
+              onAnchorLinkClick={() => setOpenMenu((v) => !v)}
+              to="/#blog"
+            >
+              ブログ
+            </AnchorLink>
+          </li>
+          <li className={styles['linkLi']}>
+            {siteMetadata && (
+              <a
+                className={styles['link']}
+                href={`mailto:${siteMetadata.mail}`}
+              >
+                お問い合わせ
+              </a>
+            )}
+          </li>
+        </ul>
+      </div>
+    </>
   )
 }
