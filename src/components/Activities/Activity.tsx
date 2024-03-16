@@ -18,39 +18,33 @@ type Props = {
 export const Activity: React.FC<Props> = ({ activity, next, prev }) => {
   return (
     <>
-      <div className={styles['swiperWrap']}>
-        <Swiper
-          grabCursor={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          speed={1000}
-          loop={true}
-          loopedSlides={activity.images.length}
-          slidesPerView={'auto'}
-          centeredSlides={true}
-          modules={[Autoplay]}
-        >
-          {activity.images.map((imageData) => {
-            const image = getImage(imageData.imgixImage)
-            return (
-              image && (
-                <SwiperSlide
-                  className={styles['imageWrap']}
-                  key={imageData.imgixImage.url}
-                >
-                  <GatsbyImage
-                    className={styles['image']}
-                    image={image}
-                    alt=""
-                  />
-                </SwiperSlide>
-              )
+      <Swiper
+        grabCursor={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        speed={1000}
+        loop={true}
+        loopedSlides={activity.images.length}
+        slidesPerView={'auto'}
+        centeredSlides={true}
+        modules={[Autoplay]}
+      >
+        {activity.images.map((imageData) => {
+          const image = getImage(imageData.imgixImage)
+          return (
+            image && (
+              <SwiperSlide
+                className={styles['imageWrap']}
+                key={imageData.imgixImage.url}
+              >
+                <GatsbyImage className={styles['image']} image={image} alt="" />
+              </SwiperSlide>
             )
-          })}
-        </Swiper>
-      </div>
+          )
+        })}
+      </Swiper>
       <div className={styles['articleWrapper']}>
         <div className={styles['spacer']}></div>
         <button

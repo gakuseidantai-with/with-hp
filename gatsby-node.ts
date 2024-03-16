@@ -1,6 +1,10 @@
 import { JSDOM } from 'jsdom'
 
-import type { CreateResolversArgs, CreateSchemaCustomizationArgs } from 'gatsby'
+import type {
+  CreateResolversArgs,
+  CreateSchemaCustomizationArgs,
+  CreateWebpackConfigArgs,
+} from 'gatsby'
 
 exports.createSchemaCustomization = ({
   actions,
@@ -77,4 +81,37 @@ exports.createResolvers = ({ createResolvers }: CreateResolversArgs) => {
     },
   }
   createResolvers(resolvers)
+}
+
+// https://github.com/gatsbyjs/gatsby/discussions/30169
+exports.onCreateWebpackConfig = ({
+  stage,
+  actions,
+  getConfig,
+  plugins,
+}: CreateWebpackConfigArgs) => {
+  const config = getConfig()
+  const miniCssExtractPluginIndex = config.plugins.findIndex(
+    (plugin: { constructor: { name: string } }) =>
+      plugin.constructor.name === 'MiniCssExtractPlugin'
+  )
+
+  if (miniCssExtractPluginIndex > -1) {
+    // remove miniCssExtractPlugin from plugins list
+    config.plugins.splice(miniCssExtractPluginIndex, 1)
+
+    // re-add mini-css-extract-plugin
+    config.plugins.push(
+      plugins.extractText({
+        filename: `[name].${
+          stage === 'build-javascript' ? '[contenthash].' : ''
+        }css`,
+        chunkFilename: `[id].${
+          stage === 'build-javascript' ? '[contenthash].' : ''
+        }css`,
+        ignoreOrder: true,
+      })
+    )
+  }
+  actions.replaceWebpackConfig(config)
 }
