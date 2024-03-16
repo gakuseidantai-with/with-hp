@@ -8,10 +8,12 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
+    "dev:pub": " gatsby develop -H 0.0.0.0",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "serve:pub": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
