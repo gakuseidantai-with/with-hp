@@ -1,4 +1,3 @@
-import * as React from 'react'
 import Moment from 'react-moment'
 
 import * as styles from '@/components/Blogs/Blogs.module.scss'

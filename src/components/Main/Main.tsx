@@ -1,5 +1,4 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import * as React from 'react'
 
 import * as styles from '@/components/Main/Main.module.scss'
 import { Polygon } from '@/components/common'

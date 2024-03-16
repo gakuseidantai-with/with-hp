@@ -1,5 +1,4 @@
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import * as React from 'react'
 
 import * as styles from '@/components/Footer/Footer.module.scss'
 import { useActivities } from '@/hooks'

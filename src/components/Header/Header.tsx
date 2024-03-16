@@ -1,5 +1,5 @@
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import * as React from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import * as styles from '@/components/Header/Header.module.scss'
 import { useSiteMetadata } from '@/hooks'
@@ -8,16 +8,16 @@ import taglinePath from '@/images/logo/tagline.svg'
 import { isClient } from '@/utils/helper'
 
 export const Header: React.FC = () => {
-  const [openMenu, setOpenMenu] = React.useState<boolean>(false)
+  const [openMenu, setOpenMenu] = useState<boolean>(false)
   const siteMetadata = useSiteMetadata()
 
-  const [prevScrollPos, setPrevScrollPos] = React.useState<number>(
+  const [prevScrollPos, setPrevScrollPos] = useState<number>(
     isClient() ? window.scrollY : 0
   )
-  const [hidden, setHidden] = React.useState<boolean>(false)
-  const ticking = React.useRef<boolean>(false)
+  const [hidden, setHidden] = useState<boolean>(false)
+  const ticking = useRef<boolean>(false)
 
-  const handleScroll = React.useCallback(() => {
+  const handleScroll = useCallback(() => {
     const currentScrollPos = window.scrollY
 
     if (!prevScrollPos) {
@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
     }
   }, [prevScrollPos])
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])

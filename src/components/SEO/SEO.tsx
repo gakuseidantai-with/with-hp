@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { useSiteMetadata } from '@/hooks'
 import { assertIsDefined } from '@/utils/assert'
 

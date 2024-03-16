@@ -19,6 +19,7 @@ const config: GatsbyConfig = {
     twitterUsername: '@sabaepc_with',
     themeColor: '#E4007F',
   },
+  jsxRuntime: 'automatic',
   graphqlTypegen: true,
   plugins: [
     {

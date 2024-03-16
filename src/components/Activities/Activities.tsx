@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useRef } from 'react'
 import Swiper, { EffectFade } from 'swiper'
 import { Swiper as SwiperEl, SwiperSlide } from 'swiper/react'
 
@@ -13,7 +13,7 @@ import 'swiper/scss/effect-fade'
 export const Activities: React.FC = () => {
   const activities = useActivities()
 
-  const swiperRef = React.useRef<Swiper>()
+  const swiperRef = useRef<Swiper>()
   const slideNext = () => {
     if (swiperRef.current) swiperRef.current.slideNext()
   }

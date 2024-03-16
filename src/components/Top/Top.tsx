@@ -1,5 +1,4 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import * as React from 'react'
 import { Autoplay, EffectFade } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 

@@ -1,12 +1,12 @@
 import { navigate } from 'gatsby'
-import * as React from 'react'
+import { useEffect } from 'react'
 
 import type { HeadFC, PageProps } from 'gatsby'
 
 import { SEO } from '@/components'
 
 const NotFoundPage: React.FC<PageProps> = () => {
-  React.useEffect(() => {
+  useEffect(() => {
     navigate('/')
   }, [])
 

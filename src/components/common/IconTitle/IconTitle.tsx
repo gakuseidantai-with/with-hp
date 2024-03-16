@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import * as styles from '@/components/common/IconTitle/IconTitle.module.scss'
 import iconPath from '@/images/logo/icon.svg'
 

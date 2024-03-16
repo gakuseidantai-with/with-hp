@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import * as styles from '@/components/common/ArrowTitle/ArrowTitle.module.scss'
 
 type Props = {
