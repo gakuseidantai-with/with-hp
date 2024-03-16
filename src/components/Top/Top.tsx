@@ -15,7 +15,7 @@ export const Top: React.FC = () => {
 
   return (
     content && (
-      <section className={styles['top']} id="top">
+      <section className={styles['top']}>
         <Swiper
           className={styles['swiper']}
           allowTouchMove={false}

@@ -48,6 +48,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
+      <div id="top" />
       <header
         className={`${styles['header']} ${hidden ? styles['hidden'] : ''}`}
       >
