@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
 import Swiper, { EffectFade } from 'swiper'
 import { Swiper as SwiperEl, SwiperSlide } from 'swiper/react'
 

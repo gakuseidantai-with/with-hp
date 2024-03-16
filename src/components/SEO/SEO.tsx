@@ -26,7 +26,7 @@ export const SEO: React.FC<Props> = ({ children }) => {
       <meta property="og:url" content={siteUrl} />
       <meta property="og:image" content={`${siteUrl}${image}`} />
 
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={twitterUsername} />
       <meta name="twitter:creator" content={twitterUsername} />
 
