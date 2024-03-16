@@ -10,35 +10,52 @@ dotenv.config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `学生団体with`,
-    description: `鯖江から世界へ！福井県鯖江市で地域活性の活動を行う学生団体です！`,
-    siteUrl: `https://with-sabae.com`,
-    image: `/og.png`,
-    mail: `gakuseidantai.with@gmail.com`,
-    twitterUsername: `@sabaepc_with`,
-    themeColor: `#E4007F`,
+    title: '学生団体with',
+    description:
+      '鯖江から世界へ！福井県鯖江市で地域活性の活動を行う学生団体です！',
+    siteUrl: 'https://with-sabae.com',
+    image: '/og.png',
+    mail: 'gakuseidantai.with@gmail.com',
+    twitterUsername: '@sabaepc_with',
+    themeColor: '#E4007F',
   },
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: `gatsby-plugin-root-import`,
+      resolve: 'gatsby-plugin-root-import',
       options: {
         '@': path.join(__dirname, 'src'),
+      },
+    },
+    {
+      resolve: 'gatsby-omni-font-loader',
+      options: {
+        enableListener: true,
+        preconnect: [
+          'https://fonts.googleapis.com',
+          'https://fonts.gstatic.com',
+        ],
+        web: [
+          {
+            name: 'Noto Sans JP',
+            file: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap',
+          },
+        ],
       },
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    `gatsby-plugin-sass`,
+    'gatsby-plugin-sass',
     {
-      resolve: `gatsby-plugin-anchor-links`,
+      resolve: 'gatsby-plugin-anchor-links',
       options: {
         duration: 500,
       },
     },
     {
-      resolve: `gatsby-source-microcms`,
+      resolve: 'gatsby-source-microcms',
       options: {
         apiKey: process.env['MICROCMS_API_KEY'],
         serviceId: 'with-sabae',
@@ -55,14 +72,14 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-source-rss-feed`,
+      resolve: 'gatsby-source-rss-feed',
       options: {
-        url: `http://rssblog.ameba.jp/gakuren/rss20.xml`,
-        name: `WithBlog`,
+        url: 'http://rssblog.ameba.jp/gakuren/rss20.xml',
+        name: 'WithBlog',
       },
     },
     {
-      resolve: `@imgix/gatsby`,
+      resolve: '@imgix/gatsby',
       options: {
         defaultImgixParams: { auto: ['compress', 'format'] },
         fields: [
