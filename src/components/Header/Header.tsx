@@ -87,14 +87,15 @@ export const Header: React.FC = () => {
           />
         </AnchorLink>
         <nav className={styles['links']}>
-          <AnchorLink to="/#about" onAnchorLinkClick={closeMenu}>
-            学生団体withとは
-          </AnchorLink>
           <AnchorLink to="/#blog" onAnchorLinkClick={closeMenu}>
             ブログ
           </AnchorLink>
+          <AnchorLink to="/#activity" onAnchorLinkClick={closeMenu}>
+            活動紹介
+          </AnchorLink>
           {siteMetadata && (
             <a href={`mailto:${siteMetadata.mail}`} onClick={closeMenu}>
+              <span className="material-symbols-outlined">mail</span>
               お問い合わせ
             </a>
           )}
@@ -152,8 +153,12 @@ export const Header: React.FC = () => {
           <AnchorLink to="/#blog" onAnchorLinkClick={closeMenu}>
             ブログ
           </AnchorLink>
+          <AnchorLink to="/#activity" onAnchorLinkClick={closeMenu}>
+            活動紹介
+          </AnchorLink>
           {siteMetadata && (
             <a href={`mailto:${siteMetadata.mail}`} onClick={closeMenu}>
+              <span className="material-symbols-outlined">mail</span>
               お問い合わせ
             </a>
           )}

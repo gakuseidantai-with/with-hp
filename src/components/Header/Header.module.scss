@@ -48,6 +48,8 @@
   }
 
   a {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: var(--color-primary);
 
@@ -55,6 +57,12 @@
     font-weight: 600;
 
     @include action;
+
+    & span:global(.material-symbols-outlined) {
+      font-size: rem(14);
+      margin-top: rem(3);
+      margin-right: rem(4);
+    }
   }
 }
 
@@ -92,11 +100,19 @@
   background-color: var(--color-white);
 
   a {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: var(--color-primary);
     font-size: rem(22);
     font-weight: 600;
 
     @include action;
+
+    & span:global(.material-symbols-outlined) {
+      font-size: rem(22);
+      margin-top: rem(5);
+      margin-right: rem(5);
+    }
   }
 }
