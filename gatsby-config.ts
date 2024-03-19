@@ -38,6 +38,10 @@ const config: GatsbyConfig = {
         ],
         web: [
           {
+            name: 'Material Symbols Outlined',
+            file: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+          },
+          {
             name: 'Noto Sans JP',
             file: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap',
           },
