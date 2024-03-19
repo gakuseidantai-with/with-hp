@@ -6,6 +6,7 @@
   width: 100%;
   background-color: var(--color-primary);
   padding: rem(60) rem(20) rem(100);
+  margin-top: rem(180);
 
   font-size: rem(24);
   color: var(--color-white);
@@ -18,6 +19,7 @@
 
   @include mobile {
     padding: rem(50) 5vw rem(20);
+    margin-top: rem(100);
     font-size: rem(18);
   }
 

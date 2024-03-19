@@ -73,7 +73,7 @@ export const Activities: React.FC = () => {
               {activities[activeIndex] && (
                 <Fragment key={activeIndex}>
                   <motion.h3
-                    className={styles['title']}
+                    className={styles['name']}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

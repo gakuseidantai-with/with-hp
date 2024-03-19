@@ -1,7 +1,5 @@
 @use '@/styles/utils' as *;
 
-$sp_rate: 0.5 !default;
-
 .circle {
   width: rem(42);
   height: rem(42);
@@ -9,8 +7,9 @@ $sp_rate: 0.5 !default;
   border: solid rem(5) var(--color-primary);
 
   @include mobile {
-    width: rem(42) * $sp_rate;
-    height: rem(42) * $sp_rate;
+    width: rem(21);
+    height: rem(21);
+    border: solid rem(2.5) var(--color-primary);
   }
 }
 
@@ -20,8 +19,8 @@ $sp_rate: 0.5 !default;
   background: var(--color-primary);
 
   @include mobile {
-    width: rem(14) * $sp_rate;
-    height: rem(10) * $sp_rate;
+    width: rem(7);
+    height: rem(2.5);
   }
 }
 
