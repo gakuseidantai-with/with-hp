@@ -10,29 +10,24 @@ export const Blogs: React.FC = () => {
     <section className={styles['blogs']} id="blog">
       <IconTitle>withブログ</IconTitle>
       <div className={styles['blogGroup']}>
-        {blogs.slice(0, 3).map((blog, index) => {
+        {blogs.slice(0, 3).map((blog) => {
           return (
             <a
-              className={styles['wrapperBlog']}
+              className={styles['blog']}
               key={blog.id}
               href={blog.link ?? void 0}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <article className={styles['blog']}>
-                <img
-                  className={styles['thumbnail']}
-                  src={blog.thumbnailUrl}
-                  alt=""
-                />
-                <h3 className={styles['title']}>{blog.title}</h3>
-                <p className={styles['description']}>{blog.description}</p>
-                {!index && blog.pubDate && (
-                  <div className={styles['dateLabel']}>
-                    <Moment format="YYYY">{blog.pubDate}</Moment>
-                    <Moment format="MMDD">{blog.pubDate}</Moment>
-                  </div>
+              <article>
+                <img src={blog.thumbnailUrl} alt="" />
+                {blog.pubDate && (
+                  <Moment className="" format="YYYY/MM/DD">
+                    {blog.pubDate}
+                  </Moment>
                 )}
+                <h3>{blog.title}</h3>
+                <p>{blog.description}</p>
               </article>
             </a>
           )
@@ -44,7 +39,8 @@ export const Blogs: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        もっとブログを見る　＞
+        もっとブログを見る
+        <span className="material-symbols-outlined">navigate_next</span>
       </a>
     </section>
   ) : (
