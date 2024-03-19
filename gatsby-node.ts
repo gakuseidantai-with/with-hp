@@ -30,10 +30,10 @@ exports.createSchemaCustomization = ({
       decorativeImgixImage4: ImgixImage!
       decorativeImgixImage5: ImgixImage!
       decorativeImgixImage6: ImgixImage!
-      topImages: [MicrocmsContentTopImages!]!
+      topImages: [MicrocmsContentTopImage!]!
     }
 
-    type MicrocmsContentTopImages implements Node {
+    type MicrocmsContentTopImage implements Node {
       imgixImage: ImgixImage!
     }
 
@@ -41,10 +41,10 @@ exports.createSchemaCustomization = ({
       title: String!
       description: String!
       link: String!
-      images: [MicrocmsActivitiesImages!]!
+      image: MicrocmsActivitiesImage!
     }
 
-    type MicrocmsActivitiesImages implements Node {
+    type MicrocmsActivitiesImage implements Node {
       imgixImage: ImgixImage!
     }
   `

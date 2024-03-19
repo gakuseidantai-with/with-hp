@@ -82,12 +82,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: rem(35);
 
   .icon {
     @include action;
     width: rem(150);
     height: rem(150);
-    margin-bottom: rem(35);
     border-radius: 50%;
     border: rem(2) solid var(--color-white);
   }

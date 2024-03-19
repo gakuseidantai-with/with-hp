@@ -89,12 +89,12 @@ const config: GatsbyConfig = {
         defaultImgixParams: { auto: ['compress', 'format'] },
         fields: [
           {
-            nodeType: 'MicrocmsContentTopImages',
+            nodeType: 'MicrocmsContentTopImage',
             fieldName: 'imgixImage',
             rawURLKey: 'url',
           },
           {
-            nodeType: 'MicrocmsActivitiesImages',
+            nodeType: 'MicrocmsActivitiesImage',
             fieldName: 'imgixImage',
             rawURLKey: 'url',
           },

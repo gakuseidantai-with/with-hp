@@ -15,7 +15,7 @@ export const useActivities = () => {
         title
         description
         link
-        images {
+        image {
           imgixImage {
             url
             gatsbyImageData(placeholder: BLURRED)
