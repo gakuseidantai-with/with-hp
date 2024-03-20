@@ -1,13 +1,12 @@
 @use '@/styles/utils' as *;
 
-$sp_rate: 0.35 !default;
-
 section.main {
   @include section;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: hidden;
 }
 
 .decoration {
@@ -15,6 +14,10 @@ section.main {
   z-index: -1000;
   width: 100%;
   height: 100%;
+
+  @include tablet {
+    display: none;
+  }
 
   & > * {
     animation-name: bobbing;
@@ -31,30 +34,18 @@ section.main {
     stroke-width: 8px;
     width: rem(157);
     animation-timing-function: ease-out;
-
-    @include mobile {
-      width: rem(157) * $sp_rate;
-    }
   }
 
   .polygonDeco1 {
     top: 28%;
-    left: 8%;
+    left: 5%;
     animation-delay: 1000ms;
-
-    @include mobile {
-      top: 13%;
-    }
   }
 
   .polygonDeco2 {
     top: 7%;
     left: 73%;
     animation-delay: 200ms;
-
-    @include mobile {
-      // top: 3%;
-    }
   }
 
   .polygonDeco3 {
@@ -62,10 +53,6 @@ section.main {
     top: 80%;
     left: 73%;
     animation-delay: 400ms;
-
-    @include mobile {
-      top: 70%;
-    }
   }
 
   & [class*='circleDeco'] {
@@ -73,9 +60,6 @@ section.main {
     border-radius: 50%;
     border: solid rem(5) var(--color-primary);
     animation-timing-function: linear;
-    @include mobile {
-      border: solid rem(5) * $sp_rate var(--color-primary);
-    }
   }
 
   .circleDeco1 {
@@ -84,11 +68,6 @@ section.main {
     width: rem(200);
     height: rem(200);
     animation-delay: 600ms;
-
-    @include mobile {
-      width: rem(200) * $sp_rate;
-      height: rem(200) * $sp_rate;
-    }
   }
 
   .circleDeco2 {
@@ -97,12 +76,6 @@ section.main {
     width: rem(120);
     height: rem(120);
     animation-delay: 500ms;
-
-    @include mobile {
-      width: rem(120) * $sp_rate;
-      height: rem(120) * $sp_rate;
-      top: 16%;
-    }
   }
 
   & [class*='imageDeco'] {
@@ -114,75 +87,44 @@ section.main {
 
   .imageDeco1 {
     z-index: -1;
-    top: 21%;
-    left: 13%;
+    top: 18%;
+    left: 10%;
     width: rem(160);
     height: rem(160);
     animation-delay: 1000ms;
-
-    @include mobile {
-      width: rem(160) * $sp_rate;
-      height: rem(160) * $sp_rate;
-      top: 6%;
-    }
   }
 
   .imageDeco2 {
-    top: 47%;
-    left: 5%;
+    top: 53%;
+    left: 2%;
     width: rem(240);
     height: rem(240);
     animation-delay: 2000ms;
-
-    @include mobile {
-      width: rem(240) * $sp_rate;
-      height: rem(240) * $sp_rate;
-      top: 37%;
-      left: 1%;
-    }
   }
 
   .imageDeco3 {
     z-index: -1;
-    top: 73%;
+    top: 77%;
     left: 16%;
     width: rem(224);
     height: rem(224);
     animation-delay: 1500ms;
-
-    @include mobile {
-      width: rem(224) * $sp_rate;
-      height: rem(224) * $sp_rate;
-      // top: 58%;
-      left: 6%;
-    }
   }
 
   .imageDeco4 {
-    top: 20%;
-    left: 77%;
+    top: 16%;
+    left: 79%;
     width: rem(240);
     height: rem(240);
     animation-delay: 700ms;
-
-    @include mobile {
-      width: rem(240) * $sp_rate;
-      height: rem(240) * $sp_rate;
-      top: 10%;
-    }
   }
 
   .imageDeco5 {
     top: 45%;
-    left: 83%;
+    left: 85%;
     width: rem(224);
     height: rem(224);
     animation-delay: 100ms;
-
-    @include mobile {
-      width: rem(224) * $sp_rate;
-      height: rem(224) * $sp_rate;
-    }
   }
 
   .imageDeco6 {
@@ -191,20 +133,20 @@ section.main {
     width: rem(200);
     height: rem(200);
     animation-delay: 300ms;
-
-    @include mobile {
-      width: rem(200) * $sp_rate;
-      height: rem(200) * $sp_rate;
-    }
   }
 }
 
-.polygon,
+.spacerTop,
 .content {
   padding-top: rem(128);
-
+}
+.spacerBottom {
+  padding-bottom: rem(200);
+  @include tablet {
+    padding-bottom: 0;
+  }
   @include mobile {
-    padding-top: rem(128) * $sp_rate;
+    padding-bottom: rem(20);
   }
 }
 
@@ -213,13 +155,11 @@ section.main {
   fill: var(--color-primary);
   width: rem(1028);
   min-width: rem(1028);
-
-  padding-bottom: rem(200);
+  animation: rotating 60s infinite linear;
 
   @include mobile {
-    width: rem(1028) * $sp_rate;
-    min-width: rem(1028) * $sp_rate;
-    padding-bottom: rem(200) * $sp_rate;
+    width: rem(700);
+    min-width: rem(700);
   }
 }
 
@@ -230,27 +170,37 @@ section.main {
   align-items: center;
   width: rem(755);
 
+  @include tablet {
+    width: rem(700);
+  }
+  @include mobile {
+    width: 90vw;
+    max-width: rem(500);
+  }
+
   .icon {
     width: rem(180);
     margin-top: rem(50);
+    border-radius: 50%;
+    border: rem(2) solid var(--color-white);
 
     @include mobile {
-      width: rem(180) * $sp_rate;
-      margin-top: rem(50) * $sp_rate;
+      width: rem(120);
+      margin-top: rem(30);
     }
   }
 
   .title {
     color: var(--color-white);
     margin-top: rem(66);
-
     font-size: rem(50);
     letter-spacing: rem(2.24);
 
     @include mobile {
-      margin-top: rem(66) * $sp_rate;
-      font-size: rem(50) * $sp_rate;
-      letter-spacing: rem(2.24) * $sp_rate;
+      margin-top: rem(30);
+      font-size: rem(36);
+      letter-spacing: rem(2);
+      text-align: center;
     }
   }
 
@@ -259,19 +209,16 @@ section.main {
     margin-top: rem(63);
 
     font-size: rem(24);
-    letter-spacing: rem(0.58);
+    line-height: rem(48);
+    letter-spacing: rem(0.6);
     white-space: pre-line;
 
     @include mobile {
-      margin-top: rem(63) * $sp_rate;
-
-      font-size: rem(24) * $sp_rate;
-      letter-spacing: rem(0.58) * $sp_rate;
+      margin-top: rem(28);
+      font-size: rem(16);
+      line-height: rem(32);
+      letter-spacing: rem(0.4);
     }
-  }
-
-  @include mobile {
-    width: rem(755) * $sp_rate;
   }
 }
 
@@ -281,5 +228,14 @@ section.main {
   }
   100% {
     transform: translateY(5px);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -50,7 +50,9 @@ export const Main: React.FC = () => {
             )
           })}
         </div>
+        <div className={styles['spacerTop']} />
         <Polygon className={styles['polygon']} sides={30} />
+        <div className={styles['spacerBottom']} />
         <div className={styles['content']}>
           <img
             className={styles['icon']}
