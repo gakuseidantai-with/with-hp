@@ -1,0 +1,22 @@
+@use '@/styles/utils' as *;
+
+h2.title {
+  margin-top: rem(20);
+  color: var(--color-primary);
+  font-size: rem(45);
+
+  @include mobile {
+    margin-top: rem(15);
+    font-size: rem(30);
+  }
+}
+
+.icon {
+  width: rem(72);
+  height: rem(72);
+  margin-top: rem(160);
+
+  @include mobile {
+    margin-top: rem(140);
+  }
+}

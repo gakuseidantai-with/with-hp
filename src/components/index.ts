@@ -1,0 +1,7 @@
+export { Activities } from '@/components/Activities/Activities'
+export { Blogs } from '@/components/Blogs/Blogs'
+export { Footer } from '@/components/Footer/Footer'
+export { Header } from '@/components/Header/Header'
+export { Main } from '@/components/Main/Main'
+export { SEO } from '@/components/SEO/SEO'
+export { Top } from '@/components/Top/Top'

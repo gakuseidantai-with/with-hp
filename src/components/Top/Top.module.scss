@@ -1,0 +1,35 @@
+@use '@/styles/utils' as *;
+
+section.top {
+  @include section;
+
+  height: 100vh;
+  min-height: rem(600);
+  overflow: hidden;
+
+  @include tablet {
+    height: auto;
+    min-height: initial;
+  }
+}
+
+.swiper,
+.imageWrap,
+.image {
+  width: 100%;
+  height: 100%;
+
+  @include tablet {
+    aspect-ratio: 3 / 2;
+    min-height: rem(600);
+  }
+
+  @include mobile {
+    aspect-ratio: 1;
+    min-height: rem(350);
+  }
+}
+
+.image {
+  object-fit: cover;
+}

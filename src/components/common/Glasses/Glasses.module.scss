@@ -1,0 +1,30 @@
+@use '@/styles/utils' as *;
+
+.circle {
+  width: rem(42);
+  height: rem(42);
+  border-radius: 50%;
+  border: solid rem(5) var(--color-primary);
+
+  @include mobile {
+    width: rem(21);
+    height: rem(21);
+    border: solid rem(2.5) var(--color-primary);
+  }
+}
+
+.line {
+  width: rem(14);
+  height: rem(5);
+  background: var(--color-primary);
+
+  @include mobile {
+    width: rem(7);
+    height: rem(2.5);
+  }
+}
+
+.glasses {
+  display: flex;
+  align-items: center;
+}

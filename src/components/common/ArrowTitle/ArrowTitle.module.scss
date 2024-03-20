@@ -1,0 +1,57 @@
+@use '@/styles/utils' as *;
+
+$lineWidth: 5;
+
+.title {
+  position: relative;
+  display: flex;
+  font-size: rem(45);
+  color: var(--color-primary);
+
+  .text {
+    position: relative;
+    padding-right: rem($lineWidth);
+    padding-bottom: rem(3);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: rem($lineWidth);
+      border-radius: rem(calc($lineWidth / 2));
+      background-color: var(--color-primary);
+    }
+  }
+
+  .arrow {
+    display: block;
+    background-color: var(--color-primary);
+    width: rem($lineWidth);
+    border-radius: rem(calc($lineWidth / 2));
+    transform: translate(rem(-$lineWidth)) rotate(45deg);
+    transform-origin: center calc(100% - rem(calc($lineWidth / 2)));
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: rem(30);
+      height: rem($lineWidth);
+      border-radius: rem(calc($lineWidth / 2));
+      background-color: var(--color-primary);
+      transform: rotate(45deg);
+      transform-origin: rem(calc($lineWidth / 2)) center;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(135deg);
+    }
+  }
+}

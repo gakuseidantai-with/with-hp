@@ -1,0 +1,241 @@
+@use '@/styles/utils' as *;
+
+section.main {
+  @include section;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.decoration {
+  position: absolute;
+  z-index: -1000;
+  width: 100%;
+  height: 100%;
+
+  @include tablet {
+    display: none;
+  }
+
+  & > * {
+    animation-name: bobbing;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate-reverse;
+    animation-duration: 1000ms;
+  }
+
+  & [class*='polygonDeco'] {
+    position: absolute;
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 8px;
+    width: rem(157);
+    animation-timing-function: ease-out;
+  }
+
+  .polygonDeco1 {
+    top: 28%;
+    left: 5%;
+    animation-delay: 1000ms;
+  }
+
+  .polygonDeco2 {
+    top: 7%;
+    left: 73%;
+    animation-delay: 200ms;
+  }
+
+  .polygonDeco3 {
+    z-index: -1;
+    top: 80%;
+    left: 73%;
+    animation-delay: 400ms;
+  }
+
+  & [class*='circleDeco'] {
+    position: absolute;
+    border-radius: 50%;
+    border: solid rem(5) var(--color-primary);
+    animation-timing-function: linear;
+  }
+
+  .circleDeco1 {
+    top: 65%;
+    left: 11%;
+    width: rem(200);
+    height: rem(200);
+    animation-delay: 600ms;
+  }
+
+  .circleDeco2 {
+    top: 31%;
+    left: 91%;
+    width: rem(120);
+    height: rem(120);
+    animation-delay: 500ms;
+  }
+
+  & [class*='imageDeco'] {
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    animation-timing-function: ease-in;
+  }
+
+  .imageDeco1 {
+    z-index: -1;
+    top: 18%;
+    left: 10%;
+    width: rem(160);
+    height: rem(160);
+    animation-delay: 1000ms;
+  }
+
+  .imageDeco2 {
+    top: 53%;
+    left: 2%;
+    width: rem(240);
+    height: rem(240);
+    animation-delay: 2000ms;
+  }
+
+  .imageDeco3 {
+    z-index: -1;
+    top: 77%;
+    left: 16%;
+    width: rem(224);
+    height: rem(224);
+    animation-delay: 1500ms;
+  }
+
+  .imageDeco4 {
+    top: 16%;
+    left: 79%;
+    width: rem(240);
+    height: rem(240);
+    animation-delay: 700ms;
+  }
+
+  .imageDeco5 {
+    top: 45%;
+    left: 85%;
+    width: rem(224);
+    height: rem(224);
+    animation-delay: 100ms;
+  }
+
+  .imageDeco6 {
+    top: 71%;
+    left: 78%;
+    width: rem(200);
+    height: rem(200);
+    animation-delay: 300ms;
+  }
+}
+
+.spacerTop,
+.content {
+  padding-top: rem(128);
+}
+.spacerBottom {
+  padding-bottom: rem(200);
+  @include tablet {
+    padding-bottom: 0;
+  }
+  @include mobile {
+    padding-bottom: rem(20);
+  }
+}
+
+.polygon {
+  z-index: -100;
+  fill: var(--color-primary);
+  width: rem(1028);
+  min-width: rem(1028);
+  animation: rotating 60s infinite linear;
+
+  @include mobile {
+    width: rem(700);
+    min-width: rem(700);
+  }
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: rem(755);
+
+  @include tablet {
+    width: rem(700);
+  }
+  @include mobile {
+    width: 90vw;
+    max-width: rem(500);
+  }
+
+  .icon {
+    width: rem(180);
+    margin-top: rem(50);
+    border-radius: 50%;
+    border: rem(2) solid var(--color-white);
+
+    @include mobile {
+      width: rem(120);
+      margin-top: rem(30);
+    }
+  }
+
+  .title {
+    color: var(--color-white);
+    margin-top: rem(66);
+    font-size: rem(50);
+    letter-spacing: rem(2.24);
+
+    @include mobile {
+      margin-top: rem(30);
+      font-size: rem(36);
+      letter-spacing: rem(2);
+      text-align: center;
+    }
+  }
+
+  .description {
+    color: var(--color-white);
+    margin-top: rem(63);
+
+    font-size: rem(24);
+    line-height: rem(48);
+    letter-spacing: rem(0.6);
+    white-space: pre-line;
+
+    @include mobile {
+      margin-top: rem(28);
+      font-size: rem(16);
+      line-height: rem(32);
+      letter-spacing: rem(0.4);
+    }
+  }
+}
+
+@keyframes bobbing {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

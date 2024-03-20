@@ -1,0 +1,139 @@
+@use '@/styles/utils' as *;
+
+section.blogs {
+  @include section;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogGroup {
+  display: flex;
+  flex-direction: row;
+  margin-top: rem(80);
+  gap: 5vw;
+  justify-content: center;
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    gap: rem(70);
+  }
+
+  @include mobile {
+    margin-top: rem(50);
+    gap: rem(40);
+  }
+}
+
+.blog {
+  text-decoration: none;
+  @include action;
+
+  article {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: rem(400);
+    background-color: var(--color-white);
+    padding: rem(18) rem(20);
+    border: rem(1) solid #cccccc;
+    border-radius: rem(5);
+
+    @include tablet {
+      width: rem(600);
+    }
+
+    @include mobile {
+      width: 85vw;
+      max-width: rem(400);
+      padding: rem(15);
+    }
+
+    img {
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    time {
+      color: var(--color-dark-grey);
+      margin-top: rem(13);
+      font-size: rem(16);
+
+      @include mobile {
+        font-size: rem(14);
+      }
+    }
+
+    h3 {
+      color: var(--color-dark-grey);
+      margin-top: rem(6);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      background: linear-gradient(transparent 60%, #fefcd7);
+      max-width: rem(360);
+      font-size: rem(25);
+      width: fit-content;
+
+      @include tablet {
+        max-width: rem(560);
+      }
+
+      @include mobile {
+        max-width: calc(min(85vw, rem(400)) - rem(30));
+        font-size: rem(20);
+      }
+    }
+
+    p {
+      color: var(--color-light-grey);
+      margin-top: rem(16);
+      font-size: rem(19);
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      @include mobile {
+        margin-top: rem(10);
+        font-size: rem(16);
+      }
+    }
+  }
+}
+
+a.moreBlogs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  margin: rem(70) auto 0;
+  gap: rem(5);
+  border-radius: rem(36);
+  font-size: rem(24);
+  width: rem(360);
+  height: rem(72);
+  text-decoration: none;
+  @include action;
+
+  @include mobile {
+    font-size: rem(17);
+    border-radius: rem(30);
+    width: rem(280);
+    height: rem(60);
+    margin: rem(50) auto 0;
+  }
+
+  & span:global(.material-symbols-outlined) {
+    font-size: rem(30);
+    margin-top: rem(4);
+
+    @include mobile {
+      font-size: rem(22);
+      margin-top: rem(3);
+    }
+  }
+}

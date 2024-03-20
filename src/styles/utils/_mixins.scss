@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+@mixin mobile {
+  @media screen and (max-width: #{$breakpoint_mobile}px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: #{$breakpoint_tablet}px) {
+    @content;
+  }
+}
+
+@mixin action {
+  transition: opacity 200ms;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    transition: opacity 100ms;
+    opacity: 0.6;
+  }
+}
+
+@mixin section {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
