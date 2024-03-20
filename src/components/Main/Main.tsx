@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import * as styles from '@/components/Main/Main.module.scss'
@@ -59,7 +60,14 @@ export const Main: React.FC = () => {
             src={iconPath}
             alt="学生団体withアイコン"
           />
-          <h1 className={styles['title']}>{content.title}</h1>
+          <motion.h1
+            className={styles['title']}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: '-20% 0px' }}
+          >
+            {content.title}
+          </motion.h1>
           <p className={styles['description']}>{content.description}</p>
         </div>
       </section>

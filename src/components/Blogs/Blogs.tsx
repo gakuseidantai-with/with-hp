@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Moment from 'react-moment'
 
 import * as styles from '@/components/Blogs/Blogs.module.scss'
@@ -19,7 +20,17 @@ export const Blogs: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <article>
+              <motion.article
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                  },
+                }}
+                viewport={{ once: true, margin: '-30% 0px' }}
+              >
                 <img src={blog.thumbnailUrl} alt="" />
                 {blog.pubDate && (
                   <Moment className="" format="YYYY/MM/DD">
@@ -28,7 +39,7 @@ export const Blogs: React.FC = () => {
                 )}
                 <h3>{blog.title}</h3>
                 <p>{blog.description}</p>
-              </article>
+              </motion.article>
             </a>
           )
         })}
