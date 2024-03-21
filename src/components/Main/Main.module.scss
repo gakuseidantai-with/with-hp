@@ -28,12 +28,18 @@ section.main {
   }
 
   & [class*='polygonDeco'] {
+    animation-name: bobbing, rotating;
+    animation-iteration-count: infinite, infinite;
+    animation-fill-mode: both, none;
+    animation-direction: alternate-reverse, reverse;
+    animation-duration: 1000ms, 40s;
+    animation-timing-function: ease-out, linear;
+
     position: absolute;
     fill: none;
     stroke: var(--color-primary);
     stroke-width: 8px;
     width: rem(157);
-    animation-timing-function: ease-out;
   }
 
   .polygonDeco1 {
@@ -233,9 +239,9 @@ section.main {
 
 @keyframes rotating {
   0% {
-    transform: rotate(0deg);
+    rotate: 0deg;
   }
   100% {
-    transform: rotate(360deg);
+    rotate: 360deg;
   }
 }

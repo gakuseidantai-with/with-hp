@@ -26,6 +26,7 @@ export const Top: React.FC = () => {
           speed={1000}
           effect={'fade'}
           loop={true}
+          loopedSlides={content.topImages.length}
           modules={[Autoplay, EffectFade]}
         >
           {content.topImages.map((topImage) => {
